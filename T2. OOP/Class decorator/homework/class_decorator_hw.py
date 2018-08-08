@@ -12,13 +12,23 @@ logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s: %(levelname)s: %(
 
 
 class User:
+    
+    def __init__(self):
+        self._x = '11'
+
     @property
     def username(self):
-        return self.__get_username()
+        return self._x#'11'#self.__get_username()
 
-    def __get_username(self):
-        """ :return: str, Chooses k unique random elements from a population sequence or set. """
-        return "".join(random.sample(string.ascii_letters, random.randint(3,15)))
+    @username.setter
+    def username(self,name):
+        self._x = name
+
+    @username.deleter
+    def username(self):
+        print('Username was deleted')
+        self._x = None
+
 
 def userview(cls):
     def UserView():
@@ -28,4 +38,8 @@ def userview(cls):
     return UserView
 
 user = User()
+# print(user.username)
+user.username = 'adf'
+logging.info(user.username)
+del user.username
 logging.info(user.username)
