@@ -11,6 +11,24 @@ logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s: %(levelname)s: %(
 # Chat window get from chat.gif
 
 
+def userview(cls):
+    class UserView:
+    # class decorator for User class
+    # add class variable ip_address
+        def __init__(self,*args):
+            self.wrapped = cls(*args)
+
+        def __getattr__(self,name):
+            return getattr(self.wrapped,name)
+
+        setattr(cls,'ip_address','111.111.111')
+        # @classmethod
+        # def __setattr__(cls,ip_address,value):
+        #     cls.ip_address = value 
+    return UserView
+
+
+@userview
 class User:
     
     def __init__(self):
@@ -30,12 +48,10 @@ class User:
         self._x = None
 
 
-def userview(cls):
-    def UserView():
-        pass
-    # class decorator for User class
-    # add class variable ip_address
-    return UserView
+class UserView(User):
+    pass
+
+
 
 user = User()
 # print(user.username)
@@ -43,3 +59,4 @@ user.username = 'adf'
 logging.info(user.username)
 del user.username
 logging.info(user.username)
+logging.info(user.ip_address)
