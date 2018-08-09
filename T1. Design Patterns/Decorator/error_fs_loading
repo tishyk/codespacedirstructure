@@ -1,0 +1,25 @@
+       42] {2018-06-21 16:21:34.021806} (Startup)              @LevInfo@         #75975# IndexServer startup, listening on socket port 5003
+[        43] {2018-06-21 16:21:34.021944} (Startup)              @LevInfo@         #75975# Allowing long passwords
+[        44] {2018-06-21 16:21:34.022893} (SD General)           @LevInfo@         #75975# The number of network interfaces found is 1
+[        45] {2018-06-21 16:21:34.024962} (From SCprintf)        @LevInfo@         #75975# TeamdUtils: ifname gx0 linkup 1 changed 0 removed 0 speed 10000 duplex 1
+[        46] {2018-06-21 16:21:34.024996} (SD General)           @LevInfo@         #75975# Interface IP = 10.151.66.10 on subnet 10.151.66.0 : link speed 10000 MBPS, Status OPERATIONAL, DeviceName gx0
+[        47] {2018-06-21 16:21:34.025001} (SD General)           @LevInfo@         #75975# The final number of network interfaces found is 1
+[        48] {2018-06-21 16:21:34.025063} (From SCprintf)        @LevInfo@         #75975# Added EndPoint 0 - 10.151.66.10
+[        49] {2018-06-21 16:21:34.025127} (From SCprintf)        @LevInfo@         #75975# Using port 5007 for management
+[        50] {2018-06-21 16:21:34.025739} (From SCprintf)        @LevInfo@         #76286# dispatchThdFnV1 thread (76286) running...
+[        51] {2018-06-21 16:21:34.026127} (Startup)              @LevInfo@         #75975# Starting memory lock down
+[        52] {2018-06-21 16:21:34.479501} (Startup)              @LevInfo@         #75975# Memory lock down complete.  Took 0 seconds
+[        53] {2018-06-21 16:21:34.479925} (From SCprintf)        @LevInfo@         #76287# Partition description incorrect checkval0
+[        54] {2018-06-21 16:21:34.479928} (Metadata Load)        @LevNotice@       #76287# Unable to read or validate partition descriptor from Local Copy 1
+[        55] {2018-06-21 16:21:34.479954} (From SCprintf)        @LevInfo@         #76287# Selecting Local Copy 0 because it is the only valid copy
+[        56] {2018-06-21 16:21:34.479997} (LogEvent)             @LevInfo@         #76287# Loading metadata from Local Copy 0
+
+[        57] {2018-06-21 16:21:34.480134} (LogEvent)             @LevInfo@         #76287# Loading Partition0 meta data version 105 seqnum 150411 created Mon May 21 19:04:05 2018 last saved Thu Jun 21 14:06:16 2018
+[        58] {2018-06-21 16:21:35.607812} (From SCprintf)        @LevInfo@         #76287# Data area checksum error
+[        59] {2018-06-21 16:21:35.607819} (Metadata Load)        @LevNotice@       #76287# Unable to load from Local Copy 0, trying to load from backup
+[        60] {2018-06-21 16:21:35.607912} (From SCprintf)        @LevInfo@         #76287# Partition description incorrect checkval0
+[        61] {2018-06-21 16:21:35.607914} (Metadata Load)        @LevNotice@       #76287# Unable to read or validate partition descriptor from Local Copy 1
+[        62] {2018-06-21 16:21:35.607917} (Metadata Load)        @LevInfo@         #76287# No metadata descriptor is valid
+[        63] {2018-06-21 16:21:35.607969} (LogEvent)             @LevInfo@         #76287# Cannot locate valid metadata to load
+
+[        64] {2018-06-21 16:21:54.154440} (From LogRecord)       @LevInfo@         #76287# FCconnectBroken received with no associated session.
