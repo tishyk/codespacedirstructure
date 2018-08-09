@@ -1,0 +1,26 @@
+Eсть некий класс, скажем, MyClass. 
+Я хочу сделать декоратор для метода этого класса (и некоторых других).
+В декораторе мне хотелось бы иметь ссылку на объект этого класса.
+
+import functools
+
+def print_self_decorator(method):
+    @functools.wraps(method)
+    def wrapper(self, *args, **kwargs):
+        print(self)
+        return method(self, *args, **kwargs)
+    return wrapper
+	
+	
+Пример:
+
+class C:
+    @print_self_decorator
+    def method(self):
+        print(C.method.__name__)
+
+C().method()
+Результат:
+
+<__main__.C object at 0x...>
+method
