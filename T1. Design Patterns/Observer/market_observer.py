@@ -1,4 +1,4 @@
-from market_observer_interface import ObserverInterface, ObservableInterface
+from .market_observer_interface import ObserverInterface, ObservableInterface
 
 
 class Observable(ObservableInterface):

@@ -1,4 +1,4 @@
-from market_observer import Observable, AmericanMarket, EuropeanMarket
+from .market_observer import Observable, AmericanMarket, EuropeanMarket
 
 if __name__ == "__main__":
     trading_exchange = Observable()

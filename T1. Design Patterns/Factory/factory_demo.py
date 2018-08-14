@@ -3,20 +3,20 @@ Provide an interface for creating families of related or dependent
 objects without specifying their concrete classes.
 """
 
-import abc
+from abc import ABC, abstractmethod
 
 
-class AbstractFactory(metaclass=abc.ABCMeta):
+class AbstractFactory(ABC):
     """
     Declare an interface for operations that create abstract product
     objects.
     """
 
-    @abc.abstractmethod
+    @abstractmethod
     def create_product_a(self):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def create_product_b(self):
         pass
 
@@ -45,12 +45,12 @@ class ConcreteFactory2(AbstractFactory):
         return ConcreteProductB2()
 
 
-class AbstractProductA(metaclass=abc.ABCMeta):
+class AbstractProductA(ABC):
     """
     Declare an interface for a type of product object.
     """
 
-    @abc.abstractmethod
+    @abstractmethod
     def interface_a(self):
         pass
 
@@ -77,12 +77,12 @@ class ConcreteProductA2(AbstractProductA):
         pass
 
 
-class AbstractProductB(metaclass=abc.ABCMeta):
+class AbstractProductB(ABC):
     """
     Declare an interface for a type of product object.
     """
 
-    @abc.abstractmethod
+    @abstractmethod
     def interface_b(self):
         pass
 

@@ -29,8 +29,9 @@ class MyClass(metaclass=Singleton):
 
 
 def main():
-    m1 = MyClass()
-    m2 = MyClass()
+    m1 = MTS()
+    m1.name = 'vodafone'
+    m2 = MTS()
     assert m1 is m2
 
 
