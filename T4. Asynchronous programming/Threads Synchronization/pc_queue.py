@@ -25,7 +25,7 @@ def consumer():
     while True:
         x = items.get()
         print(threading.currentThread().name, "got", x)
-        time.sleep(5)
+        time.sleep(2)
 
 
 # Launch a bunch of consumers

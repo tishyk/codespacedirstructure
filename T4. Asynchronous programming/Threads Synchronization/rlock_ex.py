@@ -29,7 +29,7 @@ class Foo(object):
 # Two functions that will run in separate threads and call methods
 # on the above class.
 
-def adder(f, count):
+def adder(f, count):  # change to class usage
     while count > 0:
         f.incr()
         count -= 1

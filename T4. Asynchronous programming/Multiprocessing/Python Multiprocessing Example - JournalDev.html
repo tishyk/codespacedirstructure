@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.journaldev.com/15631/python-multiprocessing-example -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="gr__journaldev_com"><script type="text/javascript" async="" src="./Python Multiprocessing Example - JournalDev_files/analytics.js.download"></script><script>(function(){var PluginArray=function(plugins){var last=plugins.length;for(var i=0;i<last;i++){this[i]=this[plugins[i].name]=plugins[i];}var Plugin=function(prop){for(var i in prop){this[i]=prop[i];}};Plugin.prototype.item=function(){};Plugin.prototype.namedItem=function(){};var dummy=new Plugin({description:"DjVu Viewer Extension for Google Chrome",filename:"djvu.js",name:"DjVu Viewer Extension",version:"",});this[last]=this[dummy.name]=dummy;Object.defineProperty(this,"length",{get:function(){return last+1}});};PluginArray.prototype.item=function(index){return this[index];};PluginArray.prototype.namedItem=function(name){for(var i=0;i<this.length;i++){if(this[i].name===name){return this[i];}}};PluginArray.prototype.refresh=function(){};var plugins=new PluginArray(navigator.plugins);Object.defineProperty(navigator,"plugins",{get:function(){return plugins}});})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Multiprocessing Example - JournalDev</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v8.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Python Multiprocessing Example, Python multiprocessing Queue, Python multiprocessing Pool, Python multiprocessing Process, Python multiprocessing Lock.">
+<link rel="canonical" href="https://www.journaldev.com/15631/python-multiprocessing-example">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Multiprocessing Example - JournalDev">
+<meta property="og:description" content="Python Multiprocessing Example, Python multiprocessing Queue, Python multiprocessing Pool, Python multiprocessing Process, Python multiprocessing Lock.">
+<meta property="og:url" content="https://www.journaldev.com/15631/python-multiprocessing-example">
+<meta property="og:site_name" content="JournalDev">
+<meta property="article:section" content="Python">
+<meta property="article:published_time" content="2017-09-13T12:21:43-07:00">
+<meta property="article:modified_time" content="2018-04-02T07:48:52-07:00">
+<meta property="og:updated_time" content="2018-04-02T07:48:52-07:00">
+<meta property="og:image" content="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count.png">
+<meta property="og:image:secure_url" content="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count.png">
+<meta property="og:image:width" content="882">
+<meta property="og:image:height" content="404">
+<meta property="og:image:alt" content="python multiprocessing example cpu count">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Python Multiprocessing Example, Python multiprocessing Queue, Python multiprocessing Pool, Python multiprocessing Process, Python multiprocessing Lock.">
+<meta name="twitter:title" content="Python Multiprocessing Example - JournalDev">
+<meta name="twitter:image" content="https://www.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count.png">
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/www.journaldev.com\/","sameAs":[],"@id":"#person","name":"Pankaj Kumar"}</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.journaldev.com\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.journaldev.com\/python","name":"Python"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.journaldev.com\/15631\/python-multiprocessing-example","name":"Python Multiprocessing Example"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.journaldev.com/15631/python-multiprocessing-example/amp"><link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="JournalDev » Feed" href="https://www.journaldev.com/feed">
+<link rel="alternate" type="application/rss+xml" title="JournalDev » Comments Feed" href="https://www.journaldev.com/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="JournalDev » Python Multiprocessing Example Comments Feed" href="https://www.journaldev.com/15631/python-multiprocessing-example/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/cdn.journaldev.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Python Multiprocessing Example - JournalDev_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="news-pro-theme-css" href="./Python Multiprocessing Example - JournalDev_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="youtube-subscribe-bar-style-css" href="./Python Multiprocessing Example - JournalDev_files/custom.css" type="text/css" media="all">
+<link rel="stylesheet" id="toc-screen-css" href="./Python Multiprocessing Example - JournalDev_files/screen.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Python Multiprocessing Example - JournalDev_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-css" href="./Python Multiprocessing Example - JournalDev_files/css" type="text/css" media="all">
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/jquery-migrate.min.js.download"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/genesis/lib/js/html5shiv.min.js'></script>
+<![endif]-->
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/responsive-menu.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.journaldev.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.journaldev.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.journaldev.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.8">
+<link rel="shortlink" href="https://www.journaldev.com/?p=15631">
+<link rel="alternate" type="application/json+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example">
+<link rel="alternate" type="text/xml+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example&amp;format=xml">
+
+<link rel="icon" type="image/png" href="https://www.journaldev.com/fav.png"><style type="text/css">.site-title a { background: url(https://cdn.journaldev.com/wp-content/uploads/2018/07/logo1.svg) no-repeat !important; }</style>
+      <meta name="onesignal" content="wordpress-plugin">
+          <link rel="manifest" href="https://www.journaldev.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/manifest.json.php?gcm_sender_id=">
+          <script src="./Python Multiprocessing Example - JournalDev_files/OneSignalSDK.js.download" async=""></script>    <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+        OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+        OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+
+        OneSignal.setDefaultNotificationUrl("https://www.journaldev.com");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = 'bab8c5d5-918b-46f8-8634-2efa6c23e327';
+oneSignal_options['autoRegister'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "https://www.journaldev.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.0818a4e7-118f-4fc1-b0e2-07892e811a2a";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['prenotify'] = true;
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+              return OneSignal.isPushNotificationsEnabled()
+                      .then(function(isPushEnabled) {
+                          return !isPushEnabled;
+                      });
+            };
+oneSignal_options['notifyButton']['showCredit'] = false;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['text']['message.prenotify'] = 'Stay Updated with us! Subscribe to our free notifications.';
+oneSignal_options['notifyButton']['text']['tip.state.subscribed'] = 'Thanks for subscribing!';
+oneSignal_options['notifyButton']['text']['message.action.subscribed'] = 'Thanks for subscribing!';
+              OneSignal.init(window._oneSignalInitOptions);
+                    });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+
+<link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2015/08/jd-site-img-150x150.png" sizes="32x32">
+<link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2015/08/jd-site-img.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://cdn.journaldev.com/wp-content/uploads/2015/08/jd-site-img.png">
+<meta name="msapplication-TileImage" content="https://cdn.journaldev.com/wp-content/uploads/2015/08/jd-site-img.png">
+		<style type="text/css" id="wp-custom-css">
+			.scriptlesssocialsharing{box-sizing:border-box;margin:18px auto}
+.scriptlesssocialsharing-buttons{border-collapse:separate;border-spacing:3px;display:table;table-layout:fixed;width:100%}
+.scriptlesssocialsharing-buttons a.button{border:none;border-radius:0;color:white;display:table-cell;text-align:center;text-decoration:none;padding:9px}
+.scriptlesssocialsharing-buttons a.button:hover{color:#fff}
+.scriptlesssocialsharing-buttons .sss-name{position:inherit;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;border:0;overflow:hidden;word-wrap:break-word}
+.scriptlesssocialsharing-buttons .button.email{background-color:#333;background-color:rgba(51,51,51,0.8)}.scriptlesssocialsharing-buttons .button.email:hover{background-color:#333}
+.scriptlesssocialsharing-buttons .button.twitter{background-color:#55acee;background-color:rgba(85,172,238,0.8)}.scriptlesssocialsharing-buttons .button.twitter:hover{background-color:#55acee}
+.scriptlesssocialsharing-buttons .button.facebook{background-color:#3b5998;background-color:rgba(59,89,152,0.8)}.scriptlesssocialsharing-buttons .button.facebook:hover{background-color:#3b5998}
+.scriptlesssocialsharing-buttons .button.linkedin{background-color:#0077b5;background-color:rgba(0,119,181,0.8)}.scriptlesssocialsharing-buttons .button.linkedin:hover{background-color:#0077b5}
+.scriptlesssocialsharing-buttons .button.google{background-color:#dc4e41;background-color:rgba(220,78,65,0.8)}.scriptlesssocialsharing-buttons .button.google:hover{background-color:#dc4e41}
+.scriptlesssocialsharing-buttons .button.pinterest {background-color: #bd081c;background-color: rgba(189, 8, 28, .8)}
+.scriptlesssocialsharing-buttons .button.pinterest:hover {background-color: #bd081c}  
+.scriptlesssocialsharing-buttons .button.reddit {background-color: #ff4500;background-color: rgba(255, 69, 0, .8)}
+.scriptlesssocialsharing-buttons .button.reddit:hover {background-color: #ff4500}
+@media print {.scriptlesssocialsharing {display: none}}		</style>
+	<script type="text/javascript" async="" src="https://cdn1.developermedia.com/a.min.js"></script><script type="text/javascript" async="" src="https://cdn2.developermedia.com/a.min.js"></script><link rel="stylesheet" href="./Python Multiprocessing Example - JournalDev_files/OneSignalSDKStyles.css"></head>
+<body class="post-template-default single single-post postid-15631 single-format-standard dwpb-push-page dwpb_responsive_extra_small custom-header header-image content-sidebar dwpb-open" itemscope="" itemtype="https://schema.org/WebPage" data-gr-c-s-loaded="true"><div class="site-container"><header class="site-header" itemscope="" itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.journaldev.com/">JournalDev</a></p><p class="site-description" itemprop="description">Java, Java EE, Android, Python, Web Development Tutorials</p></div><div class="widget-area header-widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget4-quick-adsense-2" class="widget widget_adswidget4-quick-adsense"><div class="widget-wrap"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- CM_JD_AP_Top_Responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5143693538742787" data-ad-slot="5697562523" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope="" itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><div class="responsive-menu-icon"></div><ul id="menu-new-headermenu" class="menu genesis-nav-menu menu-primary responsive-menu"><li id="menu-item-17036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://www.journaldev.com/java-tutorial-java-ee-tutorials" itemprop="url"><span itemprop="name">Java Tutorial</span></a></li>
+<li id="menu-item-7611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7611"><a href="https://www.journaldev.com/15631/python-multiprocessing-example#" itemprop="url"><span itemprop="name">#Index Posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7612"><a href="https://www.journaldev.com/7153/core-java-tutorial" itemprop="url"><span itemprop="name">Core Java Tutorial</span></a></li>
+	<li id="menu-item-7613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7613"><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" itemprop="url"><span itemprop="name">Java Design Patterns</span></a></li>
+	<li id="menu-item-7614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7614"><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" itemprop="url"><span itemprop="name">Servlet JSP Tutorial</span></a></li>
+	<li id="menu-item-7615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7615"><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Struts 2 Tutorial</span></a></li>
+	<li id="menu-item-7616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7616"><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" itemprop="url"><span itemprop="name">Spring Tutorial</span></a></li>
+	<li id="menu-item-7638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7638"><a href="https://www.journaldev.com/7635/jsf-tutorial" itemprop="url"><span itemprop="name">JSF Tutorial</span></a></li>
+	<li id="menu-item-7620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7620"><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Primefaces Tutorial</span></a></li>
+	<li id="menu-item-7619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7619"><a href="https://www.journaldev.com/2681/jdbc-tutorial" itemprop="url"><span itemprop="name">JDBC Tutorial</span></a></li>
+	<li id="menu-item-7617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7617"><a href="https://www.journaldev.com/3793/hibernate-tutorial" itemprop="url"><span itemprop="name">Hibernate Tutorial</span></a></li>
+	<li id="menu-item-7618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7618"><a href="https://www.journaldev.com/6672/mongodb-tutorial-installation-example-projects-integration-with-servlet-spring-jsf" itemprop="url"><span itemprop="name">MongoDB Tutorial</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7621"><a href="https://www.journaldev.com/15631/python-multiprocessing-example#" itemprop="url"><span itemprop="name">#Interview Questions</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7622"><a href="https://www.journaldev.com/java-interview-questions" itemprop="url"><span itemprop="name">Java Interview Questions</span></a></li>
+	<li id="menu-item-7623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7623"><a href="https://www.journaldev.com/2529/jdbc-interview-questions-and-answers" itemprop="url"><span itemprop="name">JDBC Interview Questions</span></a></li>
+	<li id="menu-item-7624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7624"><a href="https://www.journaldev.com/2015/servlet-interview-questions-and-answers" itemprop="url"><span itemprop="name">Servlet Interview Questions</span></a></li>
+	<li id="menu-item-7625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7625"><a href="https://www.journaldev.com/2110/jsp-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSP Interview Questions</span></a></li>
+	<li id="menu-item-7626" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7626"><a href="https://www.journaldev.com/2354/struts2-interview-questions-and-answers" itemprop="url"><span itemprop="name">Struts2 Interview Questions</span></a></li>
+	<li id="menu-item-7627" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7627"><a href="https://www.journaldev.com/2696/spring-interview-questions-and-answers" itemprop="url"><span itemprop="name">Spring Interview Questions</span></a></li>
+	<li id="menu-item-7628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7628"><a href="https://www.journaldev.com/3633/hibernate-interview-questions-and-answers" itemprop="url"><span itemprop="name">Hibernate Interview Questions</span></a></li>
+	<li id="menu-item-7629" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7629"><a href="https://www.journaldev.com/7261/jsf-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSF Interview Questions</span></a></li>
+</ul>
+</li>
+<li id="menu-item-17037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://www.journaldev.com/resources" itemprop="url"><span itemprop="name">Resources</span></a></li>
+<li id="menu-item-17772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17772"><a href="https://www.journaldev.com/hire-me" itemprop="url"><span itemprop="name">Hire Me</span></a></li>
+<li id="menu-item-18065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18065"><a href="https://www.journaldev.com/android-app" itemprop="url"><span itemprop="name">Download Android App</span></a></li>
+<li id="menu-item-18187" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18187"><a href="https://www.journaldev.com/write-for-us" itemprop="url"><span itemprop="name">Contribute</span></a></li>
+</ul></div></nav>	
+	<div class="wrapper mailchimp">
+        <div class="box"> 
+            <form action="https://journaldev.us8.list-manage.com/subscribe/post-json?u=612f3d966c86000f37699d8cf&amp;id=c64db63284&amp;SIGNUP=TOP_HEADER&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+				<span>
+					Subscribe to Download Java Design Patterns eBook
+				</span>
+				<div class="main_inputs">	
+				<input type="text" value="" name="FNAME" class="name" id="mce-name" placeholder="Full name" required="">
+				
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="name@example.com" required="">
+				
+                <input type="submit" value="Download Now" name="subscribe" id="mc-embedded-subscribe" class="mc-button">
+				</div>
+				
+				 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_612f3d966c86000f37699d8cf_c64db63284" tabindex="-1" value=""></div>
+    <div class="clear"></div>
+				
+            </form>
+                <div id="subscribe-result" style="display: none">
+					<p>Thank you for subscribing. Please check your email to confirm subscription.</p>
+                </div>
+        </div>
+    </div>
+	
+
+	<script>
+		var $ = jQuery;
+		$(document).ready(function () {
+  var $form = $('#mc-embedded-subscribe-form');
+  if ($form.length > 0) {
+    $('#mc-embedded-subscribe-form input[type="submit"]').bind('click', function (event) {
+      if (event) event.preventDefault();
+      mailchimp_email_register($form);
+    })
+  }
+})
+		
+function mc_validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function mailchimp_email_register($form) {
+	if(mc_validateEmail($("#mce-EMAIL").val() )) {
+		$('#mc-embedded-subscribe').val('Sending...');
+		$.ajax({
+			type: $form.attr('method'),
+			url: $form.attr('action'),
+			data: $form.serialize(),
+			cache: false,
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
+			success: function (data) {
+				$('#mc-embedded-subscribe').val('subscribe');
+				if (data.result === 'success') {
+					console.log(data.msg);
+					$('#mce-EMAIL').css('borderColor', '#ffffff');
+					$('#subscribe-result').css('color', 'rgb(53, 114, 210)');
+					$('#mc-embedded-subscribe-form').fadeOut(300);
+					$('#subscribe-result').fadeIn(300);
+					document.cookie = "subscribed=true; expires=Thu, 18 Dec 2050 12:00:00 UTC;domain=;path=/";
+					$('#mce-EMAIL').val('');
+					$('#mce-name').val('');
+				} else {
+					console.log(data.msg)
+					alert("You have already subscribed! Please try with different email.");
+				}
+			}
+		});
+	} else {
+		alert("Please enter a valid email");
+	}
+};
+	</script>
+
+<div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span><span><a href="https://www.journaldev.com/">Home</a> » <span><a href="https://www.journaldev.com/python">Python</a> » <span class="breadcrumb_last">Python Multiprocessing Example</span></span></span></span></div><article class="post-15631 post type-post status-publish format-standard category-python entry" itemscope="" itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Python Multiprocessing Example</h1>
+<p class="entry-meta"><time class="entry-modified-time" itemprop="dateModified" datetime="2018-04-02T07:48:52+00:00">April 2, 2018</time> by <span class="entry-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person"><a href="https://www.journaldev.com/author/imtiaz" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Imtiaz Abedin</span></a></span> <span class="entry-comments-link"><a href="https://www.journaldev.com/15631/python-multiprocessing-example#comments">1 Comment</a></span> </p></header><div class="entry-content" itemprop="text"><!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_after_entry_728x90" data-format="728x90"> </div>
+</div>
+<p>In our previous tutorial, we learned about <a href="https://www.journaldev.com/15543/python-csv-read-write">Python CSV Example</a>. In this tutorial we are going to learn Python Multiprocessing with examples.</p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Table of Contents <span class="toc_toggle">[<a href="https://www.journaldev.com/15631/python-multiprocessing-example#">hide</a>]</span></p><ul class="toc_list"><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing"><span class="toc_number toc_depth_1">1</span> Python Multiprocessing</a><ul><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-process-queue-and-locks"><span class="toc_number toc_depth_2">1.1</span> Python Multiprocessing Process, Queue and Locks</a></li><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-process-class"><span class="toc_number toc_depth_2">1.2</span> Python multiprocessing Process class</a></li><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-queue-class"><span class="toc_number toc_depth_2">1.3</span> Python multiprocessing Queue class</a></li><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-lock-class"><span class="toc_number toc_depth_2">1.4</span> Python multiprocessing Lock Class</a></li><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-example"><span class="toc_number toc_depth_2">1.5</span> Python multiprocessing example</a></li><li><a href="https://www.journaldev.com/15631/python-multiprocessing-example#python-multiprocessing-pool"><span class="toc_number toc_depth_2">1.6</span> Python multiprocessing Pool</a></li></ul></li></ul></div>
+<h2><span id="python-multiprocessing">Python Multiprocessing</span></h2>
+<p>Parallel processing is getting more attention nowadays. If you still don’t know about the parallel processing, learn from <a href="https://en.wikipedia.org/wiki/Parallel_processing">wikipedia</a>. </p>
+<p>As CPU manufacturers start adding more and more cores to their processors, creating parallel code is a great way to improve performance. Python introduced <strong>multiprocessing</strong> module to let us write parallel code. </p>
+<p>To understand the main motivation of this module, we have to know some basics about parallel programming. After reading this article, we hope that, you would be able to gather some knowledge on this topic.</p>
+<h3><span id="python-multiprocessing-process-queue-and-locks">Python Multiprocessing Process, Queue and Locks</span></h3>
+<p>There are plenty of classes in python multiprocessing module for building a parallel program. Among them, three basic classes are <code>Process</code>, <code>Queue</code> and <code>Lock</code>. These classes will help you to build a parallel program. </p>
+<p>But before describing about those, let us initiate this topic with simple code. To make a parallel program useful, you have to know how many cores are there in you pc. Python Multiprocessing module enables you to know that. The following simple code will print the number of cores in your pc. </p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-format="300x250" data-zone="jd_post_mid_300x250"></div>
+</div>
+
+<pre style="display: block;"><code class="hljs coffeescript"><div class="re_clip-board">Copy</div>
+<span class="hljs-keyword">import</span> multiprocessing
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Number of cpu : "</span>, multiprocessing.cpu_count())
+</code></pre>
+<p>The following output may vary for your pc. For me, number of cores is 8. </p>
+<p><img src="./Python Multiprocessing Example - JournalDev_files/python-multiprocessing-cpu-count.png" alt="python multiprocessing example cpu count" width="882" height="404" class="aligncenter size-full wp-image-15689" srcset="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count.png 882w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count-450x206.png 450w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count-768x352.png 768w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-cpu-count-20x9.png 20w" sizes="(max-width: 882px) 100vw, 882px"></p>
+<h3><span id="python-multiprocessing-process-class">Python multiprocessing Process class</span></h3>
+<p>Python multiprocessing <code>Process</code> class is an abstraction that sets up another Python process, provides it to run code and a way for the parent application to control execution. </p>
+<p>There are two important functions that belongs to the Process class – <code>start()</code> and <code>join()</code> function. </p>
+<p>At first, we need to write a function, that will be run by the process. Then, we need to instantiate a process object. </p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<!-- CM_JD_AP_Middle_Responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5143693538742787" data-ad-slot="7174295726" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<p>If we create a process object, nothing will happen until we tell it to start processing via <code>start()</code> function. Then, the process will run and return its result. After that we tell the process to complete via <code>join()</code> function. </p>
+<p>Without <code>join()</code> function call, process will remain idle and won’t terminate. </p>
+<p>So if you create many processes and don’t terminate them, you may face scarcity of resources. Then you may need to kill them manually. </p>
+<p>One important thing is, if you want to pass any argument through the process you need to use <code>args</code> keyword argument. The following code will be helpful to understand the usage of Process class.</p>
+<pre style="display: block;"><code class="hljs python"><div class="re_clip-board" style="display: none;">Copy</div>
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_func</span><span class="hljs-params">(continent=<span class="hljs-string">'Asia'</span>)</span>:</span>
+    print(<span class="hljs-string">'The name of continent is : '</span>, continent)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:  <span class="hljs-comment"># confirms that the code is under main function</span>
+    names = [<span class="hljs-string">'America'</span>, <span class="hljs-string">'Europe'</span>, <span class="hljs-string">'Africa'</span>]
+    procs = []
+    proc = Process(target=print_func)  <span class="hljs-comment"># instantiating without any argument</span>
+    procs.append(proc)
+    proc.start()
+
+    <span class="hljs-comment"># instantiating process with arguments</span>
+    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:
+        <span class="hljs-comment"># print(name)</span>
+        proc = Process(target=print_func, args=(name,))
+        procs.append(proc)
+        proc.start()
+
+    <span class="hljs-comment"># complete the processes</span>
+    <span class="hljs-keyword">for</span> proc <span class="hljs-keyword">in</span> procs:
+        proc.join()
+
+</code></pre>
+<p>The output of the following code will be:<br>
+<img src="./Python Multiprocessing Example - JournalDev_files/python-multiprocessing-process.png" alt="python multiprocessing example process class" width="1202" height="954" class="aligncenter size-full wp-image-15690" srcset="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-process.png 1202w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-process-450x357.png 450w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-process-768x610.png 768w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-process-1024x813.png 1024w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-process-20x16.png 20w" sizes="(max-width: 1202px) 100vw, 1202px"></p>
+<h3><span id="python-multiprocessing-queue-class">Python multiprocessing Queue class</span></h3>
+<p>You have basic knowledge about computer data-structure, you probably know about Queue. </p>
+<p>Python Multiprocessing modules provides <code>Queue</code> class that is exactly a <strong>First-In-First-Out</strong> data structure. They can store any pickle Python object (though simple ones are best) and are extremely useful for sharing data between processes. </p>
+<p>Queues are specially useful when passed as a parameter to a Process’ target function to enable the Process to consume data. By using <code>put()</code> function we can insert data to then queue and using <code>get()</code> we can get items from queues. See the following code for a quick example.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_leaderboard_728x90" data-format="728x90"> </div>
+</div>
+
+<pre style="display: block;"><code class="hljs coffeescript"><div class="re_clip-board">Copy</div>
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Queue
+
+colors = [<span class="hljs-string">'red'</span>, <span class="hljs-string">'green'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'black'</span>]
+cnt = <span class="hljs-number">1</span>
+<span class="hljs-comment"># instantiating a queue object</span>
+queue = Queue()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'pushing items to queue:'</span>)
+<span class="hljs-keyword">for</span> color <span class="hljs-keyword">in</span> colors:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'item no: '</span>, cnt, <span class="hljs-string">' '</span>, color)
+    queue.put(color)
+    cnt += <span class="hljs-number">1</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'\npopping items from queue:'</span>)
+cnt = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> queue.empty():
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'item no: '</span>, cnt, <span class="hljs-string">' '</span>, queue.get())
+    cnt += <span class="hljs-number">1</span>
+</code></pre>
+<p><img src="./Python Multiprocessing Example - JournalDev_files/python-multiprocessing-queue.png" alt="python multiprocessing queue" width="818" height="1050" class="aligncenter size-full wp-image-15691" srcset="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-queue.png 818w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-queue-351x450.png 351w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-queue-768x986.png 768w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-queue-798x1024.png 798w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-queue-16x20.png 16w" sizes="(max-width: 818px) 100vw, 818px"></p>
+<h3><span id="python-multiprocessing-lock-class">Python multiprocessing Lock Class</span></h3>
+<p>The task of Lock class is quite simple. It allows code to claim lock so that no other process can execute the similar code until the lock has be released. So the task of Lock class is mainly two. One is to claim lock and other is to release the lock. To claim lock the, <code>acquire()</code> function is used and to release lock <code>release()</code> function is used.</p>
+<h3><span id="python-multiprocessing-example">Python multiprocessing example</span></h3>
+<p>In this Python multiprocessing example, we will merge all our knowledge together. </p>
+<p>Suppose we have some tasks to accomplish. To get that task done, we will use several processes. So, we will maintain two queue. One will contain the tasks and the other will contain the log of completed task. </p>
+<p>Then we instantiate the processes to complete the task. Note that the <a href="https://www.journaldev.com/15804/python-queue">python Queue</a> class is already synchronized. That means, we don’t need to use the Lock class to block multiple process to access the same queue object. That’s why, we don’t need to use Lock class in this case. </p>
+<p>Below is the implementation where we are adding tasks to the queue, then creating processes and starting them, then using <code>join()</code> to complete the processes. Finally we are printing the log from the second queue.</p>
+<pre style="display: block;"><code class="hljs python"><div class="re_clip-board" style="display: none;">Copy</div>
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Lock, Process, Queue, current_process
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> queue <span class="hljs-comment"># imported for using queue.Empty exception</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_job</span><span class="hljs-params">(tasks_to_accomplish, tasks_that_are_done)</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-string">'''
+                try to get task from the queue. get_nowait() function will 
+                raise queue.Empty exception if the queue is empty. 
+                queue(False) function would do the same task also.
+            '''</span>
+            task = tasks_to_accomplish.get_nowait()
+        <span class="hljs-keyword">except</span> queue.Empty:
+
+            <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-string">'''
+                if no exception has been raised, add the task completion 
+                message to task_that_are_done queue
+            '''</span>
+            print(task)
+            tasks_that_are_done.put(task + <span class="hljs-string">' is done by '</span> + current_process().name)
+            time.sleep(<span class="hljs-number">.5</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    number_of_task = <span class="hljs-number">10</span>
+    number_of_processes = <span class="hljs-number">4</span>
+    tasks_to_accomplish = Queue()
+    tasks_that_are_done = Queue()
+    processes = []
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(number_of_task):
+        tasks_to_accomplish.put(<span class="hljs-string">"Task no "</span> + str(i))
+
+    <span class="hljs-comment"># creating processes</span>
+    <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> range(number_of_processes):
+        p = Process(target=do_job, args=(tasks_to_accomplish, tasks_that_are_done))
+        processes.append(p)
+        p.start()
+
+    <span class="hljs-comment"># completing process</span>
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+
+    <span class="hljs-comment"># print the output</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> tasks_that_are_done.empty():
+        print(tasks_that_are_done.get())
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()
+</code></pre>
+<p>Depending on the number of task, the code will take some time to show you the output. The output of the following code will vary from time to time.</p>
+<p><img src="./Python Multiprocessing Example - JournalDev_files/python-multiprocessing-example-1.png" alt="python multiprocessing example" width="1040" height="1296" class="aligncenter size-full wp-image-15692" srcset="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-example-1.png 1040w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-example-1-361x450.png 361w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-example-1-768x957.png 768w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-example-1-822x1024.png 822w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-example-1-16x20.png 16w" sizes="(max-width: 1040px) 100vw, 1040px"></p>
+<h3><span id="python-multiprocessing-pool">Python multiprocessing Pool</span></h3>
+<p>Python multiprocessing Pool can be used for parallel execution of a function across multiple input values, distributing the input data across processes (data parallelism). Below is a simple Python multiprocessing Pool example.</p>
+<pre style="display: block;"><code class="hljs python"><div class="re_clip-board">Copy</div>
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Pool
+
+<span class="hljs-keyword">import</span> time
+
+work = ([<span class="hljs-string">"A"</span>, <span class="hljs-number">5</span>], [<span class="hljs-string">"B"</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">"C"</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">"D"</span>, <span class="hljs-number">3</span>])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">work_log</span><span class="hljs-params">(work_data)</span>:</span>
+    print(<span class="hljs-string">" Process %s waiting %s seconds"</span> % (work_data[<span class="hljs-number">0</span>], work_data[<span class="hljs-number">1</span>]))
+    time.sleep(int(work_data[<span class="hljs-number">1</span>]))
+    print(<span class="hljs-string">" Process %s Finished."</span> % work_data[<span class="hljs-number">0</span>])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pool_handler</span><span class="hljs-params">()</span>:</span>
+    p = Pool(<span class="hljs-number">2</span>)
+    p.map(work_log, work)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    pool_handler()
+</code></pre>
+<p>Below image shows the output of the above program. Notice that pool size is 2, so two executions of <code>work_log</code> function is happening in parallel. When one of the function processing finishes, it picks the next argument and so on.</p>
+<p><img src="./Python Multiprocessing Example - JournalDev_files/python-multiprocessing-pool.png" alt="python multiprocessing pool" width="1190" height="1068" class="aligncenter size-full wp-image-15693" srcset="https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-pool.png 1190w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-pool-450x404.png 450w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-pool-768x689.png 768w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-pool-1024x919.png 1024w, https://cdn.journaldev.com/wp-content/uploads/2017/09/python-multiprocessing-pool-20x18.png 20w" sizes="(max-width: 1190px) 100vw, 1190px"></p>
+<p>So, that’s all for python multiprocessing module.</p>
+<p>Reference: <a href="https://docs.python.org/3.6/library/multiprocessing.html" target="_blank">Official Documentation</a></p>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:0px 0 0px 0; text-align:center;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-5143693538742787" data-ad-slot="3941417857"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div><div class="scriptlesssocialsharing"><div class="scriptlesssocialsharing-buttons"><a class="button twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Python%20Multiprocessing%20Example&amp;url=https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example&amp;via=JournalDev&amp;related=JournalDev" rel="noopener"><span class="sss-name">Twitter</span></a><a class="button facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example" rel="noopener"><span class="sss-name">Facebook</span></a><a class="button linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=1&amp;url=https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example&amp;title=Python%20Multiprocessing%20Example&amp;source=https://www.journaldev.com" rel="noopener"><span class="sss-name">Linkedin</span></a><a class="button email" target="_blank" href="mailto:?body=I%20read%20this%20post%20and%20wanted%20to%20share%20it%20with%20you.%20Here%27s%20the%20link:%20https%3A%2F%2Fwww.journaldev.com%2F15631%2Fpython-multiprocessing-example&amp;subject=A%20post%20worth%20sharing:%20Python%20Multiprocessing%20Example" rel="noopener"><span class="sss-name">Email</span></a></div></div><div class="prev-next-navigation"><a href="https://www.journaldev.com/15651/python-modulo" rel="prev"><div class="previous"><span class="prev_icon">&nbsp;Previous </span><br> <span class="pagi_content">Python Modulo</span></div></a><a href="https://www.journaldev.com/15638/python-pickle-example" rel="next"><div class="next"><span class="next_icon">Next&nbsp;</span><br> <span class="pagi_content">Python Pickle Example</span></div></a></div>
+		<!-- .prev-next-navigation --></div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.journaldev.com/python" rel="category tag">Python</a></span> </p></footer></article><div class="adjacent-entry-pagination pagination"><div class="pagination-previous alignleft"><a href="https://www.journaldev.com/15651/python-modulo" rel="prev">« Python Modulo</a></div><div class="pagination-next alignright"><a href="https://www.journaldev.com/15638/python-pickle-example" rel="next">Python Pickle Example »</a></div></div><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-43936">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<span itemprop="name">namta</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-15T15:43:39+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/15631/python-multiprocessing-example#comment-43936" class="comment-time-link" itemprop="url">July 15, 2018 at 3:43 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi</p>
+<p>You wrote “Without join() function call, process will remain idle and won’t terminate”.<br>
+That is not correct., the process will terminate with or without join().</p>
+<p>The difference is:<br>
+-With join(): the program will wait for every process to finish<br>
+-Without join(): each process will run without waiting for other processes to finish’</p>
+<p>Thks</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.journaldev.com/15631/python-multiprocessing-example#comment-43936" onclick="return addComment.moveForm( &quot;comment-43936&quot;, &quot;43936&quot;, &quot;respond&quot;, &quot;15631&quot; )" aria-label="Reply to namta">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ol></div>	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.journaldev.com/15631/python-multiprocessing-example#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.journaldev.com/wp-comments-post.php" method="post" id="commentform" class="comment-form anti-spam-form-processed" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="15631" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+<!-- Anti-spam plugin v.5.2 wordpress.org/plugins/anti-spam/ -->
+		<p class="antispam-group antispam-group-q" style="clear: both; display: none;">
+			<label>Current ye@r <span class="required">*</span></label>
+			<input type="hidden" name="antspm-a" class="antispam-control antispam-control-a" value="2018">
+			<input type="text" name="antspm-q" class="antispam-control antispam-control-q" value="5.2" autocomplete="off">
+		</p>
+		<p class="antispam-group antispam-group-e" style="display: none;">
+			<label>Leave this field empty</label>
+			<input type="text" name="antspm-e-email-url-website" class="antispam-control antispam-control-e" value="" autocomplete="off">
+		</p>
+			<input type="hidden" name="antspm-d" class="antispam-control antispam-control-d" value="2018"></form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area q2w3-fixed-widget-container" role="complementary" aria-label="Primary Sidebar" itemscope="" itemtype="https://schema.org/WPSideBar" style="height: 660px;"><section id="search-3" class="widget widget_search"><div class="widget-wrap"><form class="search-form" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction" method="get" action="https://www.journaldev.com/" role="search"><meta itemprop="target" content="https://www.journaldev.com/?s={s}"><input itemprop="query-input" type="search" name="s" placeholder="Search for tutorials..."><input type="submit" value="Search"></form></div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget5-quick-adsense-2" class="widget widget_adswidget5-quick-adsense"><div class="widget-wrap"><!-- jd_sidebar_responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5143693538742787" data-ad-slot="9959852017" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></section>
+<section id="custom_html-7" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h4 class="widget-title widgettitle">Download Android App</h4>
+<div class="textwidget custom-html-widget"><a href="https://www.journaldev.com/android-app-play-store" target="_blank" rel="noopener"><img src="./Python Multiprocessing Example - JournalDev_files/google-play-badge.png" width="336" height="130" alt="JournalDev Android App Play Store Link"></a></div></div></section>
+<section id="text-12" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Python Tutorial</h4>
+			<div class="textwidget"><div id="expand_widget">
+<div class="expand_widget_title"><span class="widget_plus_icon"></span>Python Basics</div>
+<ul>
+<li><a href="https://www.journaldev.com/13949/python-tutorial-beginners" target="_blank" rel="noopener">Python Tutorial for Beginners</a></li>
+<li><a href="https://www.journaldev.com/13996/python-keywords-identifiers" target="_blank" rel="noopener">Python Keywords and Identifiers</a></li>
+<li><a href="https://www.journaldev.com/14012/python-comment-python-statement" target="_blank" rel="noopener">Python Comments and Statements</a></li>
+<li><a href="https://www.journaldev.com/14036/python-data-types" target="_blank" rel="noopener">Python Data Types</a></li>
+<li><a href="https://www.journaldev.com/14056/python-input-output-python-import" target="_blank" rel="noopener">Python Input Output Import</a></li>
+<li><a href="https://www.journaldev.com/14082/python-operators" target="_blank" rel="noopener">Python Operators</a></li>
+<li><a href="https://www.journaldev.com/15186/python-variable" target="_blank" rel="noopener">Python Variable</a></li>
+<li><a href="https://www.journaldev.com/14463/python-namespace-variable-scope" target="_blank" rel="noopener">Python Namespace Variable Scope</a></li>
+<li><a href="https://www.journaldev.com/14092/python-if-else-elif" target="_blank" rel="noopener">Python If Else</a></li>
+<li><a href="https://www.journaldev.com/14136/python-for-loop-example" target="_blank" rel="noopener">Python For Loop</a></li>
+<li><a href="https://www.journaldev.com/14152/python-while-loop" target="_blank" rel="noopener">Python While Loop</a></li>
+<li><a href="https://www.journaldev.com/14161/python-break-python-continue" target="_blank" rel="noopener">Python break continue</a></li>
+<li><a href="https://www.journaldev.com/15642/python-switch-case" target="_blank" rel="noopener">Python switch case</a></li>
+<li><a href="https://www.journaldev.com/17225/python-ternary-operator" target="_blank" rel="noopener">Python ternary operator</a></li>
+<li><a href="https://www.journaldev.com/14240/python-pass-statement" target="_blank" rel="noopener">Python pass statement</a></li>
+<li><a href="https://www.journaldev.com/14245/python-loop-example" target="_blank" rel="noopener">Python Loop Example</a></li>
+<li><a href="https://www.journaldev.com/14256/python-function-arguments" target="_blank" rel="noopener">Python Functions</a></li>
+<li><a href="https://www.journaldev.com/17752/python-main-function" target="_blank" rel="noopener">Python main function</a></li>
+<li><a href="https://www.journaldev.com/15182/python-print" target="_blank" rel="noopener">Python print</a></li>
+<li><a href="https://www.journaldev.com/17370/python-print-format" target="_blank" rel="noopener">Python print format</a></li>
+<li><a href="https://www.journaldev.com/18424/python-print-to-file" target="_blank" rel="noopener">Python print to file</a></li>
+<li><a href="https://www.journaldev.com/15815/python-input" target="_blank" rel="noopener">Python input</a></li>
+<li><a href="https://www.journaldev.com/22576/python-import" target="_blank" rel="noopener">Python import</a></li>
+<li><a href="https://www.journaldev.com/14408/python-read-file-open-write-delete-copy" target="_blank" rel="noopener">Python Read File</a></li>
+<li><a href="https://www.journaldev.com/14271/python-recursion-fibonacci" target="_blank" rel="noopener">Python Recursion</a></li>
+<li><a href="https://www.journaldev.com/14288/python-anonymous-function" target="_blank" rel="noopener">Python Anonymous Function</a></li>
+<li><a href="https://www.journaldev.com/15517/python-lambda" target="_blank" rel="noopener">Python lambda</a></li>
+<li><a href="https://www.journaldev.com/16160/python-pip" target="_blank" rel="noopener">Python PIP</a></li>
+<li><a href="https://www.journaldev.com/17743/python-command-line-arguments" target="_blank" rel="noopener">Python command line arguments</a></li>
+<li><a href="https://www.journaldev.com/14347/python-numbers" target="_blank" rel="noopener">Python Numbers</a></li>
+<li><a href="https://www.journaldev.com/16134/python-random-number" target="_blank" rel="noopener">Python Random Number</a></li>
+<li><a href="https://www.journaldev.com/15068/python-string-to-int-int-to-string" target="_blank" rel="noopener">Python String to int</a></li>
+<li><a href="https://www.journaldev.com/14444/python-exception-handling-try-expect" target="_blank" rel="noopener">Python Exception Handling</a></li>
+<li><a href="https://www.journaldev.com/14454/python-custom-exception" target="_blank" rel="noopener">Python Custom Exception</a></li>
+<li><a href="https://www.journaldev.com/14633/python-inheritance-example" target="_blank" rel="noopener">Python Inheritance</a></li>
+<li><a href="https://www.journaldev.com/15911/python-super" target="_blank" rel="noopener">Python super</a></li>
+<li><a href="https://www.journaldev.com/14623/python-multiple-inheritance" target="_blank" rel="noopener">Python Multiple Inheritance</a></li>
+<li><a href="https://www.journaldev.com/14637/python-operator-overloading" target="_blank" rel="noopener">Python Operator Overloading</a></li>
+<li><a href="https://www.journaldev.com/22460/python-str-repr-functions" target="_blank" rel="noopener">Python __str__ and __repr__</a></li>
+</ul>
+</div>
+<div id="expand_widget">
+<div class="expand_widget_title"><span class="widget_plus_icon"></span>Python Builtin Functions</div>
+<ul>
+<li><a href="https://www.journaldev.com/22608/python-absolute-value-abs" target="_blank" rel="noopener">Python abs()</a></li>
+<li><a href="https://www.journaldev.com/22635/python-all-function" target="_blank" rel="noopener">Python all()</a></li>
+<li><a href="https://www.journaldev.com/22639/python-any-function" target="_blank" rel="noopener">Python any()</a></li>
+<li><a href="https://www.journaldev.com/22644/python-ascii" target="_blank" rel="noopener">Python ascii()</a></li>
+<li><a href="https://www.journaldev.com/22663/python-bin" target="_blank" rel="noopener">Python bin()</a></li>
+<li><a href="https://www.journaldev.com/22669/python-bool" target="_blank" rel="noopener">Python bool()</a></li>
+<li><a href="https://www.journaldev.com/22695/python-breakpoint" target="_blank" rel="noopener">Python breakpoint()</a></li>
+<li><a href="https://www.journaldev.com/22703/python-bytearray" target="_blank" rel="noopener">Python bytearray()</a></li>
+<li><a href="https://www.journaldev.com/22747/python-bytes" target="_blank" rel="noopener">Python bytes()</a></li>
+<li><a href="https://www.journaldev.com/22761/python-callable-__call__" target="_blank" rel="noopener">Python callable()</a></li>
+<li><a href="https://www.journaldev.com/22767/python-ord-chr" target="_blank" rel="noopener">Python ord() chr()</a></li>
+<li><a href="https://www.journaldev.com/22772/python-compile-function" target="_blank" rel="noopener">Python compile()</a></li>
+<li><a href="https://www.journaldev.com/22797/python-complex" target="_blank" rel="noopener">Python complex()</a></li>
+<li><a href="https://www.journaldev.com/22803/python-del-statement-delattr-function" target="_blank" rel="noopener">Python delattr()</a></li>
+<li><a href="https://www.journaldev.com/22810/python-dir-function" target="_blank" rel="noopener">Python dir()</a></li>
+<li><a href="https://www.journaldev.com/22504/python-eval-function" target="_blank" rel="noopener">Python eval()</a></li>
+<li><a href="https://www.journaldev.com/22513/python-exec" target="_blank" rel="noopener">Python exec()</a></li>
+<li><a href="https://www.journaldev.com/15178/python-float" target="_blank" rel="noopener">Python float()</a></li>
+<li><a href="https://www.journaldev.com/16146/python-getattr" target="_blank" rel="noopener">Python getattr()</a></li>
+<li><a href="https://www.journaldev.com/17357/python-hash-function" target="_blank" rel="noopener">Python hash()</a></li>
+<li><a href="https://www.journaldev.com/15911/python-super" target="_blank" rel="noopener">Python super()</a></li>
+<li><a href="https://www.journaldev.com/14620/python-iterator" target="_blank" rel="noopener">Python iter()</a></li>
+<li><a href="https://www.journaldev.com/15073/python-range" target="_blank" rel="noopener">Python range()</a></li>
+<li><a href="https://www.journaldev.com/14362/python-tuple" target="_blank" rel="noopener">Python tuple()</a></li>
+<li><a href="https://www.journaldev.com/15076/python-type" target="_blank" rel="noopener">Python type()</a></li>
+<li><a href="https://www.journaldev.com/15891/python-zip-function" target="_blank" rel="noopener">Python zip()</a></li>
+</ul>
+</div>
+<div id="expand_widget">
+<div class="expand_widget_title"><span class="widget_plus_icon"></span>Python Advanced</div>
+<ul>
+<li><a href="https://www.journaldev.com/14628/python-class-definition-variables-constructor-method-object" target="_blank" rel="noopener">Python Class</a></li>
+<li><a href="https://www.journaldev.com/18397/python-class-init" target="_blank" rel="noopener">Python Class init method</a></li>
+<li><a href="https://www.journaldev.com/18981/python-classmethod" target="_blank" rel="noopener">Python @classmethod</a></li>
+<li><a href="https://www.journaldev.com/18722/python-static-method" target="_blank" rel="noopener">Python static method</a></li>
+<li><a href="https://www.journaldev.com/15505/python-metaclass" target="_blank" rel="noopener">Python metaclass</a></li>
+<li><a href="https://www.journaldev.com/14353/python-list" target="_blank" rel="noopener">Python List</a></li>
+<li><a href="https://www.journaldev.com/14504/python-sort-list" target="_blank" rel="noopener">Python Sort List</a></li>
+<li><a href="https://www.journaldev.com/15065/python-list-append" target="_blank" rel="noopener">Python List append</a></li>
+<li><a href="https://www.journaldev.com/18626/python-join-list" target="_blank" rel="noopener">Python Join List</a></li>
+<li><a href="https://www.journaldev.com/14523/python-list-comprehension" target="_blank" rel="noopener">Python List Comprehension</a></li>
+<li><a href="https://www.journaldev.com/14385/python-string" target="_blank" rel="noopener">Python String</a></li>
+<li><a href="https://www.journaldev.com/14971/python-array" target="_blank" rel="noopener">Python Array</a></li>
+<li><a href="https://www.journaldev.com/14394/python-set" target="_blank" rel="noopener">Python Set</a></li>
+<li><a href="https://www.journaldev.com/15804/python-queue" target="_blank" rel="noopener">Python Queue</a></li>
+<li><a href="https://www.journaldev.com/16045/python-stack" target="_blank" rel="noopener">Python Stack</a></li>
+<li><a href="https://www.journaldev.com/14401/python-dictionary" target="_blank" rel="noopener">Python Dictionary</a></li>
+<li><a href="https://www.journaldev.com/14417/python-directory-create-rename-delete" target="_blank" rel="noopener">Python Directory</a></li>
+<li><a href="https://www.journaldev.com/16403/python-copy-deep-copy" target="_blank" rel="noopener">Python Deep Copy</a></li>
+<li><a href="https://www.journaldev.com/14954/python-generator" target="_blank" rel="noopener">Python Generator</a></li>
+<li><a href="https://www.journaldev.com/14961/python-closure" target="_blank" rel="noopener">Python Closure</a></li>
+<li><a href="https://www.journaldev.com/14932/python-decorator-example" target="_blank" rel="noopener">Python Decorator Example</a></li>
+<li><a href="https://www.journaldev.com/14893/python-property-decorator" target="_blank" rel="noopener">Python Property Decorator</a></li>
+<li><a href="https://www.journaldev.com/15809/python-yield" target="_blank" rel="noopener">Python yield</a></li>
+<li><a href="https://www.journaldev.com/17278/python-self" target="_blank" rel="noopener">Python self</a></li>
+<li><a href="https://www.journaldev.com/15931/python-raw-input" target="_blank" rel="noopener">Python raw_input</a></li>
+<li><a href="https://www.journaldev.com/15651/python-modulo" target="_blank" rel="noopener">Python modulo</a></li>
+<li><a href="https://www.journaldev.com/15791/python-assert" target="_blank" rel="noopener">Python assert</a></li>
+<li><a href="https://www.journaldev.com/15174/python-join" target="_blank" rel="noopener">Python join</a></li>
+<li><a href="https://www.journaldev.com/15082/python-enumerate" target="_blank" rel="noopener">Python enumerate</a></li>
+<li><a href="https://www.journaldev.com/19392/python-xml-to-json-dict" target="_blank" rel="noopener">Python XML to JSON, Dict</a></li>
+<li><a href="https://www.journaldev.com/18798/python-calculator-simple-program" target="_blank" rel="noopener">Python Calculator</a></li>
+<li><a href="https://www.journaldev.com/19800/python-send-email-smtplib" target="_blank" rel="noopener">Python Send Email</a></li>
+<li><a href="https://www.journaldev.com/17927/python-garbage-collection-gc" target="_blank" rel="noopener">Python Garbage Collection</a></li>
+<li><a href="https://www.journaldev.com/19114/python-debugger-python-pdb" target="_blank" rel="noopener">Python Debugger</a></li>
+</ul>
+</div>
+<div id="expand_widget">
+<div class="expand_widget_title"><span class="widget_plus_icon"></span>Python Modules</div>
+<ul>
+<li><a href="https://www.journaldev.com/14329/python-modules" target="_blank" rel="noopener">Python Modules</a></li>
+<li><a href="https://www.journaldev.com/14339/python-package" target="_blank" rel="noopener">Python Package</a></li>
+<li><a href="https://www.journaldev.com/15193/python-time" target="_blank" rel="noopener">Python time</a></li>
+<li><a href="https://www.journaldev.com/18745/python-datetime" target="_blank" rel="noopener">Python datetime</a></li>
+<li><a href="https://www.journaldev.com/20549/python-timeit-module" target="_blank" rel="noopener">Python timeit</a></li>
+<li><a href="https://www.journaldev.com/18804/python-decimal-division-round-precision" target="_blank" rel="noopener">Python decimal</a></li>
+<li><a href="https://www.journaldev.com/19226/python-fractions" target="_blank" rel="noopener">Python fractions</a></li>
+<li><a href="https://www.journaldev.com/15797/python-time-sleep" target="_blank" rel="noopener">Python sleep</a></li>
+<li><a href="https://www.journaldev.com/19103/python-collections" target="_blank" rel="noopener">Python collections</a></li>
+<li><a href="https://www.journaldev.com/20806/python-counter-python-collections-counter" target="_blank" rel="noopener">Python Counter</a></li>
+<li><a href="https://www.journaldev.com/21807/python-ordereddict" target="_blank" rel="noopener">Python OrderedDict</a></li>
+<li><a href="https://www.journaldev.com/22439/python-namedtuple" target="_blank" rel="noopener">Python namedtuple</a></li>
+<li><a href="https://www.journaldev.com/17946/python-tarfile-module" target="_blank" rel="noopener">Python tarfile</a></li>
+<li><a href="https://www.journaldev.com/19002/python-zipfile-zip" target="_blank" rel="noopener">Python zipfile</a></li>
+<li><a href="https://www.journaldev.com/19827/python-gzip-compress-decompress" target="_blank" rel="noopener">Python GZip</a></li>
+<li><a href="https://www.journaldev.com/19178/python-io-bytesio-stringio" target="_blank" rel="noopener">Python IO</a></li>
+<li><a href="https://www.journaldev.com/20503/python-tempfile-module" target="_blank" rel="noopener">Python tempfile</a></li>
+<li><a href="https://www.journaldev.com/18043/python-lxml" target="_blank" rel="noopener">Python lxml</a></li>
+<li><a href="https://www.journaldev.com/18094/python-xml-parser-elementtree" target="_blank" rel="noopener">Python XML Parser</a></li>
+<li><a href="https://www.journaldev.com/19931/python-html-parser" target="_blank" rel="noopener">Python HTML Parser</a></li>
+<li><a href="https://www.journaldev.com/19213/python-http-client-request-get-post" target="_blank" rel="noopener">Python HTTP Client</a></li>
+<li><a href="https://www.journaldev.com/15543/python-csv-read-write" target="_blank" rel="noopener">Python CSV Read Write</a></li>
+<li><a href="https://www.journaldev.com/16016/python-parse-json-dumps-loads" target="_blank" rel="noopener">Python Parse JSON</a></li>
+<li><a href="https://www.journaldev.com/15539/python-mysql-example-tutorial" target="_blank" rel="noopener">Python MySQL Example</a></li>
+<li><a href="https://www.journaldev.com/20515/python-sqlite-tutorial" target="_blank" rel="noopener">Python SQLite</a></li>
+<li><a href="https://www.journaldev.com/15906/python-socket-programming-server-client" target="_blank" rel="noopener">Python Socket Programming</a></li>
+<li><a href="https://www.journaldev.com/15631/python-multiprocessing-example" target="_blank" rel="noopener">Python Multiprocessing example</a></li>
+<li><a href="https://www.journaldev.com/17290/python-threading-multithreading" target="_blank" rel="noopener">Python threading module</a></li>
+<li><a href="https://www.journaldev.com/16152/python-daemon-thread" target="_blank" rel="noopener">Python Daemon Thread</a></li>
+<li><a href="https://www.journaldev.com/17416/python-subprocess" target="_blank" rel="noopener">Python subprocess</a></li>
+<li><a href="https://www.journaldev.com/17491/python-argparse" target="_blank" rel="noopener">Python argparse</a></li>
+<li><a href="https://www.journaldev.com/17508/python-getopt" target="_blank" rel="noopener">Python getopt</a></li>
+<li><a href="https://www.journaldev.com/17566/python-itertools" target="_blank" rel="noopener">Python itertools</a></li>
+<li><a href="https://www.journaldev.com/17232/python-os-module" target="_blank" rel="noopener">Python os module</a></li>
+<li><a href="https://www.journaldev.com/17243/python-sys-module" target="_blank" rel="noopener">Python sys module</a></li>
+<li><a href="https://www.journaldev.com/17401/python-struct-pack-unpack" target="_blank" rel="noopener">Python struct pack unpack</a></li>
+<li><a href="https://www.journaldev.com/16140/python-system-command-os-subprocess-call" target="_blank" rel="noopener">Python System Command</a></li>
+<li><a href="https://www.journaldev.com/15899/python-unittest-unit-test-example" target="_blank" rel="noopener">Python unittest</a></li>
+<li><a href="https://www.journaldev.com/16035/python-hashlib" target="_blank" rel="noopener">Python hashlib</a></li>
+<li><a href="https://www.journaldev.com/17431/python-logging" target="_blank" rel="noopener">Python logging</a></li>
+<li><a href="https://www.journaldev.com/17533/python-ftp" target="_blank" rel="noopener">Python ftp</a></li>
+<li><a href="https://www.journaldev.com/17550/python-functools" target="_blank" rel="noopener">Python functools</a></li>
+<li><a href="https://www.journaldev.com/15524/python-flask-tutorial" target="_blank" rel="noopener">Python flask tutorial</a></li>
+<li><a href="https://www.journaldev.com/15638/python-pickle-example" target="_blank" rel="noopener">Python pickle example</a></li>
+<li><a href="https://www.journaldev.com/15646/python-numpy-tutorial" target="_blank" rel="noopener">Python NumPy Tutorial</a></li>
+<li><a href="https://www.journaldev.com/16025/python-matrix" target="_blank" rel="noopener">Python Matrix</a></li>
+<li><a href="https://www.journaldev.com/16049/python-math" target="_blank" rel="noopener">Python Math</a></li>
+<li><a href="https://www.journaldev.com/15915/python-simplehttpserver-http-server" target="_blank" rel="noopener">Python SimpleHttpServer</a></li>
+<li><a href="https://www.journaldev.com/16039/python-signal-processing" target="_blank" rel="noopener">Python Signal Processing</a></li>
+<li><a href="https://www.journaldev.com/20795/python-urllib-python-3-urllib" target="_blank" rel="noopener">Python urllib</a></li>
+<li><a href="https://www.journaldev.com/20536/python-shutil-module" target="_blank" rel="noopener">Python shutil</a></li>
+<li><a href="https://www.journaldev.com/20555/python-getpass-module" target="_blank" rel="noopener">Python getpass</a></li>
+<li><a href="https://www.journaldev.com/18729/python-configparser" target="_blank" rel="noopener">Python ConfigParser</a></li>
+<li><a href="https://www.journaldev.com/19243/python-ast-abstract-syntax-tree" target="_blank" rel="noopener">Python AST</a></li>
+<li><a href="https://www.journaldev.com/19946/python-inspect-module" target="_blank" rel="noopener">Python Inspect</a></li>
+<li><a href="https://www.journaldev.com/17840/theano-python-tutorial" target="_blank" rel="noopener">Python Theano</a></li>
+<li><a href="https://www.journaldev.com/17780/python-matplotlib" target="_blank" rel="noopener">Python Matplotlib</a></li>
+<li><a href="https://www.journaldev.com/19692/python-plotly-tutorial" target="_blank" rel="noopener">Python Plotly</a></li>
+<li><a href="https://www.journaldev.com/18106/python-scipy-tutorial" target="_blank" rel="noopener">Python SciPy</a></li>
+<li><a href="https://www.journaldev.com/18175/python-tensorflow-tutorial" target="_blank" rel="noopener">Python TensorFlow</a></li>
+<li><a href="https://www.journaldev.com/18314/keras-deep-learning-tutorial" target="_blank" rel="noopener">Python Keras</a></li>
+<li><a href="https://www.journaldev.com/18341/python-scikit-learn-tutorial" target="_blank" rel="noopener">Python Scikit</a></li>
+<li><a href="https://www.journaldev.com/18583/python-seaborn-tutorial" target="_blank" rel="noopener">Python Seaborn</a></li>
+<li><a href="https://www.journaldev.com/19119/python-statsmodels-statistics" target="_blank" rel="noopener">Python StatsModels</a></li>
+<li><a href="https://www.journaldev.com/19279/python-gensim-word2vec" target="_blank" rel="noopener">Python Gensim</a></li>
+<li><a href="https://www.journaldev.com/19410/networkx-python-graph-library" target="_blank" rel="noopener">Python NetworkX</a></li>
+<li><a href="https://www.journaldev.com/19527/bokeh-python-data-visualization" target="_blank" rel="noopener">Python Bokeh</a></li>
+<li><a href="https://www.journaldev.com/15490/python-interview-questions" target="_blank" rel="noopener">Python Interview Questions</a></li>
+</ul>
+</div>
+</div>
+		</div></section>
+<section id="text-10_clone" class="widget widget_text q2w3-widget-clone-sidebar" style="top: 10px; width: 300px; height: 26px; visibility: hidden;"></section><section id="text-10" class="widget widget_text" style="top: 10px; width: 300px; position: fixed;"><div class="widget-wrap">			<div class="textwidget"><p><script id="mNCC" language="javascript">
+    medianet_width = "300";
+    medianet_height = "600";
+    medianet_crid = "382243897";
+    medianet_versionId = "3111299"; 
+  </script><br>
+<script src="./Python Multiprocessing Example - JournalDev_files/nmedianet.js.download"></script></p>
+</div>
+		</div></section>
+</aside></div></div><footer class="site-footer" itemscope="" itemtype="https://schema.org/WPFooter"><div class="wrap"><p>©&nbsp;2018 · <a href="https://www.journaldev.com/privacy-policy">Privacy Policy</a> · Don't copy, it's Bad Karma · Powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a></p></div></footer></div><script src="https://m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<script>
+(function(){
+	if(typeof _bsa !== 'undefined' && _bsa) {
+  		// format, zoneKey, segment:value, options
+  		_bsa.init('stickybox', 'CKYI6KQU', 'placement:journaldevcom');
+               //  _bsa.init('fancybar', 'CK7D4KJE', 'placement:journaldevcom');
+  	}
+})();
+
+</script>
+<script type="text/javascript">
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script');
+        _dma.type = 'text/javascript';
+        _dma.async = true;
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Python Multiprocessing Example - JournalDev_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-12171637-4', { 'anonymize_ip': true });
+</script>
+	<script src="./Python Multiprocessing Example - JournalDev_files/highlight.min.js.download"></script>
+	<script>
+		jQuery(document).ready(function() {
+		  jQuery('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+			$(".entry-content pre").show();
+		  });
+		  	
+			jQuery('.entry-content pre code').mouseenter(function(e){
+				var t = jQuery(this);
+					t.children(".re_clip-board").slideDown(100);
+				jQuery(e.target).mouseleave(function(){
+					t.children(".re_clip-board").slideUp(100);
+					
+					setTimeout(function() {
+						t.children(".re_clip-board").text("Copy");
+					}, 100);
+					
+				});
+			});
+			
+			jQuery('.entry-content pre code .re_clip-board').click(function(e){
+				re_copyToClipboard(jQuery(this));
+				$(this).text("Copied!");
+				$(this).css("width", "85px");
+			});
+		});
+		
+function re_copyToClipboard(element) {
+	var elements = element.parent();
+  	var $temp = $("<textarea>");
+  	$("body").append($temp);
+	var text = $(elements).text().replace(/Copy/g, "");
+  	$temp.val(text).select();
+  	document.execCommand("copy");
+  	$temp.remove();
+}
+
+/*Starting expand widget jquery codes */
+var rotation = 0;
+jQuery.fn.plus_rotate = function(degrees) {
+    $(this).css({"-webkit-transform" : "rotate("+ degrees +"deg)",
+                 "-moz-transform" : "rotate("+ degrees +"deg)",
+                 "-ms-transform" : "rotate("+ degrees +"deg)",
+                 "transform" : "rotate("+ degrees +"deg)"});
+    return $(this);
+};
+
+$(document).ready(function(){
+  $(".expand_widget_title").click(function(){
+    if ( !$(this).parent().children("ul").is(":visible") ) {
+      rotation += 360;
+	  $(this).children(".widget_plus_icon").removeClass("zero_six_rotate");
+      $(this).children(".widget_plus_icon").addClass("tree_six_rotate");
+     $(this).parent().children("ul").slideDown(390);
+	 
+	 var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("plus_icon");
+		t.children(".widget_plus_icon").addClass("minus_icon");
+	 }, 400);
+  } else {
+    rotation -= 360;
+     	$(this).children(".widget_plus_icon").removeClass("tree_six_rotate");
+		$(this).children(".widget_plus_icon").addClass("zero_six_rotate");
+    $(this).parent().children("ul").slideUp(390);
+	
+	var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("minus_icon");
+		t.children(".widget_plus_icon").addClass("plus_icon");
+	 }, 400);
+  }
+  });
+ });
+
+/*Ending expand widget jquery codes */
+
+</script>
+	<link rel="stylesheet" id="dwpb_style-css" href="./Python Multiprocessing Example - JournalDev_files/main.css" type="text/css" media="all">
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/anti-spam-5.2.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"hide","width":"Auto","smooth_scroll_offset":"60"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/front.min.js.download"></script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/comment-reply.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"sidebar","margin_top":10,"margin_bottom":0,"stop_id":"","screen_max_width":1024,"screen_max_height":120,"width_inherit":false,"refresh_interval":1500,"window_load_hook":false,"disable_mo_api":false,"widgets":["text-10"]}];
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/q2w3-fixed-widget.min.js.download"></script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/wp-embed.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var dwpb = {"timeleft":"7855","reset_cookie":"8"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/jquery.countdown.js.download"></script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/jquery.cookie.js.download"></script>
+<script type="text/javascript" src="./Python Multiprocessing Example - JournalDev_files/main.js.download"></script>
+		<style>
+						@font-face {
+        font-family: "0";
+        src: url('');
+      }
+			#dwpb {
+				font-family: 0;
+			}
+			
+						#dwpb,
+			.dwpb-action {
+				background-color: #f7682c;
+			}
+			
+			
+						#dwpb,
+			.dwpb-action,
+			body.dwpb-allow-close.dwpb-open .dwpb-close {
+				color: #fff;
+			}
+			
+						#dwpb {
+				font-size: 16px;
+			}
+			
+			
+			
+						#dwpb {
+				border-width: 0;
+			}
+			
+						#dwpb a {
+				color: #ffffff;
+			}
+			
+						#dwpb .dwpb-button {
+				background-color: #096abf;
+			}
+			
+					</style>
+		
+		<div id="dwpb" class=" fixtop ">
+			<div class="dwpb-inner">
+				
+				<div class="dwpb-message hide">
+					<span class="dwpb-content">[Flash Sale] Java Interview Questions Course at Lowest Price</span>
+					 <a class="dwpb-button" href="https://www.journaldev.com/45f6" target="_blank" "="">Check Out Now</a>				</div>
+					
+				<div class="dwpb-countdown ">
+					<div class="dwpb-counter countdownHolder"><div class="countDays"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="boxName"><span class="Days">d</span></span></div><div class="countHours"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">2</span></span><span class="boxName"><span class="Hours">h</span></span></div><div class="countMinutes"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">8</span></span><span class="boxName"><span class="Minutes">m</span></span></div><div class="countSeconds"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">3</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">2</span></span><span class="boxName"><span class="Seconds">s</span></span></div></div>
+					<span class="dwpbcd-content">[Back to School Sale] Udemy Courses at $9.99/INR 640 Only</span>
+					 <a class="dwpb-button" href="https://www.journaldev.com/udemy-best-deal" target="_self" "="">Check Out Now!</a>				</div>
+			</div>
+		</div>
+				<span class="dwpb-action"></span>
+	<script src="./Python Multiprocessing Example - JournalDev_files/lazyload.js.download"></script>
+
+<!-- Page generated by LiteSpeed Cache 2.4.3 on 2018-08-27 22:49:05 --><style id="dwpb-custom-style">body.dwpb-push-page.dwpb-open, body.dwpb-push-page.admin-bar.dwpb-open #wpadminbar, .dwpb-twenty-fourteen.dwpb-open.dwpb-push-page .site-header{top:40px}</style><style id="dwpb-custom-style-twenty-fourteen">.admin-bar.dwpb-twenty-fourteen.dwpb-open.dwpb-push-page .site-header{top:40px}</style><iframe src="./Python Multiprocessing Example - JournalDev_files/webPushAnalytics.html" style="display: none;"></iframe><div id="onesignal-bell-container" class="onesignal-bell-container onesignal-reset onesignal-bell-container-bottom-left"><div id="onesignal-bell-launcher" class="onesignal-bell-launcher onesignal-bell-launcher-md onesignal-bell-launcher-bottom-left onesignal-bell-launcher-theme-default onesignal-bell-launcher-active"><div class="onesignal-bell-launcher-button"><svg class="onesignal-bell-svg" xmlns="http://www.w3.org/2000/svg" width="99.7" height="99.7" viewBox="0 0 99.7 99.7" style="filter: drop-shadow(0 2px 4px rgba(34,36,38,0.35));; -webkit-filter: drop-shadow(0 2px 4px rgba(34,36,38,0.35));;"><circle class="background" cx="49.9" cy="49.9" r="49.9"></circle><path class="foreground" d="M50.1 66.2H27.7s-2-.2-2-2.1c0-1.9 1.7-2 1.7-2s6.7-3.2 6.7-5.5S33 52.7 33 43.3s6-16.6 13.2-16.6c0 0 1-2.4 3.9-2.4 2.8 0 3.8 2.4 3.8 2.4 7.2 0 13.2 7.2 13.2 16.6s-1 11-1 13.3c0 2.3 6.7 5.5 6.7 5.5s1.7.1 1.7 2c0 1.8-2.1 2.1-2.1 2.1H50.1zm-7.2 2.3h14.5s-1 6.3-7.2 6.3-7.3-6.3-7.3-6.3z"></path><ellipse class="stroke" cx="49.9" cy="49.9" rx="37.4" ry="36.9"></ellipse></svg></div><div class="onesignal-bell-launcher-badge onesignal-bell-launcher-badge-opened">1</div><div class="onesignal-bell-launcher-message"><div class="onesignal-bell-launcher-message-body"></div></div><div class="onesignal-bell-launcher-dialog" style="filter: drop-shadow(0px 2px 2px rgba(34,36,38,.15));; -webkit-filter: drop-shadow(0px 2px 2px rgba(34,36,38,.15));;"><div class="onesignal-bell-launcher-dialog-body"></div></div></div></div></body></html>

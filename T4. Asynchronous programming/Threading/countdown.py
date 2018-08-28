@@ -14,8 +14,8 @@ class CountdownThread(threading.Thread):
         while self.count > 0:
             print("Counting down", self.count)
             self.count -= 1
-            time.sleep(2)
-        return
+            time.sleep(0.5)
+        return self.count
 
 
 # Sample execution

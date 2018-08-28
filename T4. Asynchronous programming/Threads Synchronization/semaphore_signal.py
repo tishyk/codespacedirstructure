@@ -13,7 +13,7 @@ def producer():
     global item
     print("I'm the producer and I produce data.")
     print("Producer is going to sleep.")
-    time.sleep(10)
+    time.sleep(5)
     item = "Hello"
     print("Producer is alive. Signaling the consumer.")
     done.release()
