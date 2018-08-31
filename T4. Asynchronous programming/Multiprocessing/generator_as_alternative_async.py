@@ -3,7 +3,7 @@
 def countdown_task(n):
     while n > 0:
         print(n)
-        yield
+        yield n
         n -= 1
 
 # A list of tasks to run
