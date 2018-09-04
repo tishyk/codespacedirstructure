@@ -11,7 +11,19 @@ import aiohttp
 
 urls = ['http://www.google.com', 'http://www.yandex.ru', 'http://www.python.org']
 
+<<<<<<< HEAD
+
+async def aiohttp_get(url):
+    """Nothing to see here, carry on ..."""
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return response
+
+async def call_url(url):
+    response = await aiohttp_get(url)
+    data = response.text
 @asyncio.coroutine
+
 """
 Coroutines are special functions that work similarly to Python generators,
 on await they release the flow of control back to the event loop.
@@ -28,7 +40,7 @@ def call_url(url):
 	but will not if no other task is pending.
 	"""
     print('{}: {} bytes: {}'.format(url, len(data), data))
-    return data
+
 
 """ New syntax from python 3.7 
 

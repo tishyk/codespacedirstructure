@@ -48,8 +48,8 @@ def synchronous():
 
 async def asynchronous():
     start = time.time()
-    tasks = [asyncio.ensure_future(
-        fetch_async(i)) for i in range(1, MAX_CLIENTS + 1)]
+    tasks = [asyncio.ensure_future(fetch_async(i))
+                        for i in range(1, MAX_CLIENTS + 1)]
     await asyncio.wait(tasks)
     print("Process took: {:.2f} seconds".format(time.time() - start))
 

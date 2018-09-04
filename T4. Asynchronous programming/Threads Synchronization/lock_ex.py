@@ -26,7 +26,7 @@ def bar():
 
 
 t1 = threading.Thread(target=foo)
-t2 = threading.Thread(target=bar)
+t2 = threading.Thread(target=foo)
 t1.start()
 t2.start()
 t1.join()

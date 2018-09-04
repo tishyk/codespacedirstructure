@@ -5,7 +5,7 @@
 import threading
 import time
 
-done = threading.Semaphore(0)
+sema = threading.Semaphore(1)
 item = None
 
 
@@ -13,20 +13,27 @@ def producer():
     global item
     print("I'm the producer and I produce data.")
     print("Producer is going to sleep.")
-    time.sleep(5)
     item = "Hello"
+    time.sleep(2)
+    print(item)
     print("Producer is alive. Signaling the consumer.")
-    done.release()
+    sema.release()
 
 
 def consumer():
     print("I'm a consumer and I wait for data.")
     print("Consumer is waiting.")
-    done.acquire()
+    sema.acquire()
     print("Consumer got", item)
+    # sema.release()
 
 
 t1 = threading.Thread(target=producer)
 t2 = threading.Thread(target=consumer)
+t3 = threading.Thread(target=consumer)
+t4 = threading.Thread(target=consumer)
 t1.start()
 t2.start()
+t3.start()
+t4.start()
+print('dk;jnbkjdb')

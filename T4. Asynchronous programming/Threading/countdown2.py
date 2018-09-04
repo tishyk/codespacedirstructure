@@ -4,13 +4,11 @@
 import time
 import threading
 
-
 def countdown(count):
     while count > 0:
         print("Counting down", count)
         count -= 1
-        time.sleep(2)
-    return
+        time.sleep(5)
 
 
 # Sample execution

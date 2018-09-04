@@ -6,17 +6,22 @@ when executed, returns a coroutine which can then be awaited.
 
 import asyncio
 import aiohttp
+import  time
 
-urls = ['http://www.google.com', 'http://www.yandex.ru', 'http://www.python.org']
+urls = ['http://www.google.com', 'http://devdocs.io', 'http://www.python.org']
 
 async def call_url(url):
     print('Starting {}'.format(url))
-    response = await aiohttp.get(url) # aiohttp.get method is deprecated!
-    data = await response.text()
-    print('{}: {} bytes: {}'.format(url, len(data), data))
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            data = await response.text()
+            print('{}: {} bytes: {}'.format(url, len(data), data[:30]))
     return data
 
+
+time.clock()
 futures = [call_url(url) for url in urls]
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(asyncio.wait(futures))
+print('Done', time.clock())

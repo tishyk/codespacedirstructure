@@ -1,7 +1,7 @@
 import multiprocessing
 
 def calc_square(numbers, result, v):
-    v.value = 5.67
+    if v.value :
     for idx, n in enumerate(numbers):
         result[idx] = n*n
 
