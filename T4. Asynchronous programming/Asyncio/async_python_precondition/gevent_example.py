@@ -12,5 +12,4 @@ def print_head(url):
 
 
 jobs = [gevent.spawn(print_head, _url) for _url in urls]
-
 gevent.wait(jobs)

@@ -8,14 +8,14 @@ import queue
 
 # A queue of items being produced
 
-items = queue.Queue()
+items = []
 
 
 # A producer thread
 def producer():
     print("I'm the producer")
     for i in range(30):
-        items.put(i)
+        items.put(i)     # 10 items
         time.sleep(1)
 
 
@@ -23,10 +23,8 @@ def producer():
 def consumer():
     print("I'm a consumer", threading.currentThread().name)
     while True:
-        x = items.get()
+        x = items.pop() # items.pop()
         print(threading.currentThread().name, "got", x)
-        time.sleep(2)
-
 
 # Launch a bunch of consumers
 cons = [threading.Thread(target=consumer) for i in range(10)]

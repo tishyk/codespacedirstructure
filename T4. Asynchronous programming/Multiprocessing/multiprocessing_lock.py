@@ -24,4 +24,4 @@ if __name__ == '__main__':
     w.start()
     d.join()
     w.join()
-    print(balance.value)
+    print(balance)

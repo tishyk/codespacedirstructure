@@ -25,6 +25,9 @@ threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
 
 # Go initialize and eventually unlock the workers
 initialize()

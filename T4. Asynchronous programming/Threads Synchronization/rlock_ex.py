@@ -11,7 +11,7 @@ class Foo(object):
     lock = threading.RLock()
 
     def __init__(self):
-        self.x = 0
+        self.x = 10
 
     def add(self, n):
         with Foo.lock:
