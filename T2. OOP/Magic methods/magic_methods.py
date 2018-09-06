@@ -268,6 +268,7 @@ class BasicDescriptor:
         self.name = name  # name of attribute being stored. A key in the instance dict
 
     def __get__(self, instance, cls):
+        print("Get instance {} name: {}".format(instance, self.name))
         if instance is None:
             return self
         else:
@@ -301,16 +302,23 @@ class MyDescriptor:
         print("Delete:", self.name)
         del instance.__dict__[self.name]
 
+class INT(MyDescriptor):
+    def __set__(self, instance, value):
+        if not isinstance(value, int):
+            raise TypeError("Expected type 'int'")
+        super().__set__(instance, value)
 
 class DarwinPlatform:
-    def __init__(self, platform = None):
+    platform = INT('platform')
+    def __init__(self, platform):
         self.platform = platform
-        platform = BasicDescriptor('platform')
 
-dwpl = DarwinPlatform("Some platform")
-print(dwpl.platform)
+dwpl = DarwinPlatform(10)
+dwpl.platform
 dwpl.platform = "new platform"
 del dwpl.platform
+
+#CReate INT, STR type descriptor
 
 #DarwinPlatform.platform
 Negative_Tests = (1, 5, 10)

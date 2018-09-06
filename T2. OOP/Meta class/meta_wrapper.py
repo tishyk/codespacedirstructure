@@ -142,7 +142,7 @@ class BaseClass(metaclass=mytype):   # it's set to type by default. You can chan
 
 class A(BaseClass): pass
 class B(BaseClass): pass
-#class C(A,B): pass
+#class C(A,B): pass  # should failed
 
 # Metaclass get infomation about class definiton at the time of definition
 # -- Can inspect this data
