@@ -1,0 +1,1817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>633</width>
+    <height>663</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ConfigTD</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_15">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>7</number>
+      </property>
+      <widget class="QWidget" name="storage_panel">
+       <attribute name="title">
+        <string>Storage</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QGroupBox" name="mount_data_group_box">
+              <property name="title">
+               <string>Mount Data</string>
+              </property>
+              <layout class="QFormLayout" name="formLayout">
+               <property name="labelAlignment">
+                <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="user_label">
+                 <property name="text">
+                  <string>Mount User:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>mount_user_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="mount_user_box"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="mount_passwd_box"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="scratch_dir_box"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="password_label">
+                 <property name="text">
+                  <string>Mount Password:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>mount_passwd_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="scratch_label">
+                 <property name="text">
+                  <string>Scratch Directory:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>scratch_dir_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="mount_label">
+                 <property name="text">
+                  <string>Allow Mounting:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>enable_mount_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="enable_mount_box"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="primary_unity_group_box">
+              <property name="title">
+               <string>Primary Unity</string>
+              </property>
+              <layout class="QFormLayout" name="formLayout_2">
+               <property name="labelAlignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="servername_label">
+                 <property name="text">
+                  <string>Virtual Server name:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>server_box1</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="workspace_label">
+                 <property name="text">
+                  <string>Workspace:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>workspace_box1</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="storagegroup_label">
+                 <property name="text">
+                  <string>Storage Group:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>storage_group_box1</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="network_label">
+                 <property name="text">
+                  <string>Network Provider:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>np_combobox1</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="server_box1"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="workspace_box1"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="storage_group_box1"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="np_combobox1"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QGroupBox" name="quality_center_group_box">
+              <property name="title">
+               <string>Quality Center and runsuite.py</string>
+              </property>
+              <layout class="QFormLayout" name="formLayout_3">
+               <property name="labelAlignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="remoteclient_label">
+                 <property name="text">
+                  <string>Run on Remote Client:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>remote_client_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="remote_client_box"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="test_behaviour_group_box">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Test Behavior</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="0" column="0">
+                <widget class="QLabel" name="stop_label">
+                 <property name="text">
+                  <string>Stop on Test Failure:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>sotf_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="developer_label">
+                 <property name="text">
+                  <string>Use Developer Mode:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>devmode_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="logging_label">
+                 <property name="text">
+                  <string>Overwrite Log Settings (Hex):</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>log_settings_box</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="sotf_box"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="devmode_box"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="log_settings_box"/>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLineEdit" name="log_value_box"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="second_unity_group_box">
+              <property name="title">
+               <string>Second Unity</string>
+              </property>
+              <layout class="QFormLayout" name="formLayout_4">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               </property>
+               <property name="labelAlignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="servername_label_2">
+                 <property name="text">
+                  <string>Virtual Server name:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>server_box2</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="server_box2"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="workspace_label_2">
+                 <property name="text">
+                  <string>Workspace:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>workspace_box2</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="workspace_box2"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="storagegroup_label_2">
+                 <property name="text">
+                  <string>Storage Group:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>storage_group_box2</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="storage_group_box2"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="network_label_2">
+                 <property name="text">
+                  <string>Network Provider:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="buddy">
+                  <cstring>np_combobox2</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="np_combobox2"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="isis_panel">
+       <attribute name="title">
+        <string>ISIS</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QGroupBox" name="isisdata_group">
+            <property name="title">
+             <string>ISIS Data</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_5">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="mcu_label">
+               <property name="text">
+                <string>Management Console User:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="mcu_text"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="mcp_label">
+               <property name="text">
+                <string>Management Console Password:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="sbu_label">
+               <property name="text">
+                <string>Switch/Storage Blade User:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="sbp_label">
+               <property name="text">
+                <string>Switch/Storage Blade Password:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="mcp_text"/>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="sbu_text"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="sbp_text"/>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="management_port">
+               <property name="text">
+                <string>BOGUS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Management Interface IP/Host:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="ftp_group">
+            <property name="title">
+             <string>FTP Server Details</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_6">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="ftpserver_label">
+               <property name="text">
+                <string>FTP Server:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="ftp_loginname_label">
+               <property name="text">
+                <string>FTP Username:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="ftp_password_label">
+               <property name="text">
+                <string>FTP Password:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="ftpserver_text"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="ftp_loginname_text"/>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="ftp_password_text"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="licensing_group">
+            <property name="title">
+             <string>Licensing</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_7">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+             </property>
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="system_id_label">
+               <property name="text">
+                <string>System ID:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="system_id_text"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="activation_id_label">
+               <property name="text">
+                <string>Activation ID:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="activation_id_text"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_17">
+          <item>
+           <spacer name="verticalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox">
+            <property name="title">
+             <string>Licensing (Standby)</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_12">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+             </property>
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="sb_activation_id_label">
+               <property name="text">
+                <string>System ID:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="sb_system_id_text"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="sb_system_id_label">
+               <property name="text">
+                <string>Activation ID:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="sb_activation_id_text"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="video_panel">
+       <attribute name="title">
+        <string>Video</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QGroupBox" name="videodata_group">
+            <property name="title">
+             <string>Video Data</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_8">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1">
+               <property name="text">
+                <string>COM port:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="text1"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label2">
+               <property name="text">
+                <string>Video Standard:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="text2"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label3">
+               <property name="text">
+                <string>AirO Server:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="text3"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label4">
+               <property name="text">
+                <string>Serial Protocol uses Story TC:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QCheckBox" name="story_tc_box"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label5">
+               <property name="text">
+                <string>VDCP issues STILL after CUE:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QCheckBox" name="still_cue_box"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="storagedata_group">
+            <property name="title">
+             <string>Storage Data</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_9">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+             </property>
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1_2">
+               <property name="text">
+                <string>Use Static Pattern Feed:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QCheckBox" name="use_pattern_feed"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="remote_panel">
+       <attribute name="title">
+        <string>Remote Groups</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <item>
+           <widget class="QGroupBox" name="verticalGroupBox_5">
+            <property name="title">
+             <string>Group Name</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <item>
+              <widget class="QComboBox" name="groupcombobox"/>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QPushButton" name="copy_button">
+                 <property name="toolTip">
+                  <string>Copies the remote clients in the current group to another group</string>
+                 </property>
+                 <property name="text">
+                  <string>Copy</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="validate_button">
+                 <property name="toolTip">
+                  <string>Verifies Test Monkey is running the remote clients in this group</string>
+                 </property>
+                 <property name="text">
+                  <string>Validate</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="hoststable">
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="showGrid">
+                <bool>false</bool>
+               </property>
+               <property name="columnCount">
+                <number>2</number>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>250</number>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Hostname</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Test Monkey Status</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QPushButton" name="add_button">
+                 <property name="toolTip">
+                  <string>Adds a remote client to the current group</string>
+                 </property>
+                 <property name="text">
+                  <string>Add</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="remove_button">
+                 <property name="toolTip">
+                  <string>Removes selected remote clients from the current group</string>
+                 </property>
+                 <property name="text">
+                  <string>Remove</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="remove_all_button">
+                 <property name="toolTip">
+                  <string>Removes all remote clients from the current group</string>
+                 </property>
+                 <property name="text">
+                  <string>Remove All</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="cifs_panel">
+       <attribute name="title">
+        <string>CIFS Server</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QGroupBox" name="cifs_group">
+            <property name="title">
+             <string>CIFS Server</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_10">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1_3">
+               <property name="text">
+                <string>CIFS Server Name:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="cifs_server_name_line_edit"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label2_2">
+               <property name="text">
+                <string>ISIS Server Name:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="cifs_isis_server_line_edit"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="cifs_shares_group">
+            <property name="title">
+             <string>CIFS Shares</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_11">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1_4">
+               <property name="text">
+                <string>CIFS Share #1:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="cifs_share_line_edit_1"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label2_3">
+               <property name="text">
+                <string>CIFS Share #2:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="cifs_share_line_edit_2"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="failover_panel">
+       <attribute name="title">
+        <string>Failover</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <item>
+           <widget class="QGroupBox" name="failover_group">
+            <property name="title">
+             <string>Failover System Directors</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1_5">
+               <property name="text">
+                <string>First Failover System Director Host Name:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="failover_sd_line_edit_1"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label2_4">
+               <property name="text">
+                <string>Second Failover System Director Host Name:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="failover_sd_line_edit_2"/>
+             </item>
+             <item row="3" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QPushButton" name="verify_button">
+                 <property name="toolTip">
+                  <string>Verifies the hosts inserted in fields above are available</string>
+                 </property>
+                 <property name="text">
+                  <string>Verify</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_7">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="test_settings_panel">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="title">
+        <string>Test Settings</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QGroupBox" name="test_settings_group">
+            <property name="title">
+             <string>Test Settings</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label1_6">
+               <property name="text">
+                <string>Number of times to invert the pattern:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="invert_pattern_qty_line_edit"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label2_5">
+               <property name="text">
+                <string>For packetdrop, number of milliseconds to drop packets on the ports: </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="packetdrop_downtime_line_edit"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label3_2">
+               <property name="text">
+                <string>For packetdrop, number of milliseconds to to allow transmition on the ports: </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="packetdrop_uptime_line_edit"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label4_2">
+               <property name="text">
+                <string>For switchdrop, number of milliseconds to drop packets on the ports:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="switchdrop_downtime_line_edit"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label5_2">
+               <property name="text">
+                <string>For switchdrop, number of milliseconds to to allow transmition on the ports: </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="switchdrop_uptime_line_edit"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="clients_upgrade_panel">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="title">
+        <string>Upgrade clients</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_18">
+          <item>
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="3">
+              <widget class="QPushButton" name="clients_upgrade_push_button">
+               <property name="text">
+                <string>Upgrade</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="4">
+              <widget class="QTableWidget" name="clients_upgrade_table">
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="whatsThis">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="columnCount">
+                <number>3</number>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>180</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Hostname</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>OS</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Status</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="2">
+              <widget class="QComboBox" name="installer_source_combo_box">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source of clients installer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>releng</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>gold</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>server</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="server_ip_line_edit"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabs_widget_logs">
+      <property name="tabPosition">
+       <enum>QTabWidget::West</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_info">
+       <attribute name="title">
+        <string>Info</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QTextEdit" name="info_text_edit">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_error">
+       <attribute name="title">
+        <string>Error</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTextEdit" name="error_text_edit">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>633</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuLogs">
+    <property name="title">
+     <string>&amp;Logs</string>
+    </property>
+    <addaction name="actionShow_Logs"/>
+    <addaction name="actionClear"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionConfluence"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuLogs"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="iconText">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionShow_Logs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Show Logs</string>
+   </property>
+   <property name="iconText">
+    <string>&amp;Show Logs</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="iconText">
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="iconText">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </action>
+  <action name="actionConfluence">
+   <property name="text">
+    <string>&amp;Confluence</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verify_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_verify_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>326</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>groupcombobox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>populatelist_ctrl(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>validate_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_validate_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>remove_all_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_remove_all_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>410</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>remove_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_remove_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>517</x>
+     <y>410</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>add_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_add_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>410</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>copy_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_copy_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Logs</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tabs_widget_logs</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>480</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>info_text_edit</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_text_changed_in_logs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>error_text_edit</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_text_changed_in_logs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabs_widget_logs</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_log_tab_selected(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>info_text_edit</sender>
+   <signal>selectionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_text_clicked_in_logs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>error_text_edit</sender>
+   <signal>selectionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_text_clicked_in_logs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClear</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_clear_logs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionConfluence</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_confluence()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_save()</slot>
+  <slot>on_about()</slot>
+  <slot>on_verify_click()</slot>
+  <slot>populatelist_ctrl(QString)</slot>
+  <slot>on_validate_click()</slot>
+  <slot>on_remove_all_click()</slot>
+  <slot>on_remove_click()</slot>
+  <slot>on_add_click()</slot>
+  <slot>on_copy_click()</slot>
+  <slot>on_show_logs(bool)</slot>
+  <slot>on_text_changed_in_logs()</slot>
+  <slot>on_log_tab_selected(int)</slot>
+  <slot>on_text_clicked_in_logs()</slot>
+  <slot>on_clear_logs()</slot>
+  <slot>on_confluence()</slot>
+ </slots>
+</ui>

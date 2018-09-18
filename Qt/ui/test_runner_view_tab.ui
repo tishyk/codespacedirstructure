@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>1</number>
+   </property>
+   <property name="margin">
+    <number>1</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="layout_toolbar">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="vertical_layout">
+     <item>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="handleWidth">
+        <number>4</number>
+       </property>
+       <widget class="QTextEdit" name="text_edit_xml">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="text_edit_log">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="action_run">
+   <property name="icon">
+    <iconset>
+     <normaloff>test_runner_play.png</normaloff>test_runner_play.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+   <property name="toolTip">
+    <string>Run test</string>
+   </property>
+  </action>
+  <action name="action_stop">
+   <property name="icon">
+    <iconset>
+     <normaloff>test_runner_stop.png</normaloff>test_runner_stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+   <property name="toolTip">
+    <string>Stop test</string>
+   </property>
+  </action>
+  <action name="action_log">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>test_runner_log.png</normaloff>test_runner_log.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log</string>
+   </property>
+   <property name="toolTip">
+    <string>View log</string>
+   </property>
+  </action>
+  <action name="action_xml">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>test_runner_xml.png</normaloff>test_runner_xml.png</iconset>
+   </property>
+   <property name="text">
+    <string>xml</string>
+   </property>
+   <property name="toolTip">
+    <string>View xml</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_xml</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>text_edit_xml</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>84</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_log</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>text_edit_log</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

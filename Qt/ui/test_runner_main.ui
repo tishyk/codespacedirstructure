@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>627</width>
+    <height>452</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Test Suite Edit Tool.</string>
+  </property>
+  <widget class="QWidget" name="widget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="vertical_layout">
+      <item>
+       <widget class="QTabWidget" name="view_tabs">
+        <property name="tabsClosable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>627</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menu_Recent">
+     <property name="title">
+      <string>&amp;Recent</string>
+     </property>
+     <addaction name="actionRecent_tt_1"/>
+     <addaction name="actionRecent_tt_2"/>
+     <addaction name="actionRecent_tt_3"/>
+     <addaction name="actionRecent_tt_4"/>
+     <addaction name="actionRecent_tt_5"/>
+     <addaction name="actionRecent_tt_6"/>
+     <addaction name="actionRecent_tt_7"/>
+     <addaction name="actionRecent_tt_8"/>
+     <addaction name="actionRecent_tt_9"/>
+     <addaction name="actionRecent_tt_10"/>
+    </widget>
+    <addaction name="action_open_in_tree"/>
+    <addaction name="action_open_in_tab"/>
+    <addaction name="action_save"/>
+    <addaction name="action_remove_in_tree"/>
+    <addaction name="separator"/>
+    <addaction name="menu_Recent"/>
+    <addaction name="separator"/>
+    <addaction name="action_restore_all_changes"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Actions">
+    <property name="title">
+     <string>&amp;Actions</string>
+    </property>
+    <addaction name="action_run"/>
+    <addaction name="action_enable"/>
+    <addaction name="action_disable"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_about"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Actions"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dock_test_suite">
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>Test Suite</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
+     </property>
+     <item>
+      <widget class="CTestTreeWidget" name="tree_view_widget">
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="action_about">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="action_run">
+   <property name="text">
+    <string>&amp;Run</string>
+   </property>
+   <property name="statusTip">
+    <string>Run selected test table.</string>
+   </property>
+  </action>
+  <action name="action_enable">
+   <property name="text">
+    <string>&amp;Enable</string>
+   </property>
+  </action>
+  <action name="action_disable">
+   <property name="text">
+    <string>&amp;Disable</string>
+   </property>
+  </action>
+  <action name="action_open_in_tree">
+   <property name="text">
+    <string>&amp;Open test suite…</string>
+   </property>
+   <property name="iconText">
+    <string>Open test suite</string>
+   </property>
+   <property name="statusTip">
+    <string>Open existing test table.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="text">
+    <string>&amp;Save…</string>
+   </property>
+   <property name="statusTip">
+    <string>Save changes.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_restore_all_changes">
+   <property name="text">
+    <string>Restore all &amp;changes</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove all changes that were made in test tables.</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit application.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_1">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_2">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_3">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_4">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_5">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_6">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_7">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_8">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_9">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="actionRecent_tt_10">
+   <property name="text">
+    <string>recent_tt</string>
+   </property>
+  </action>
+  <action name="action_remove_in_tree">
+   <property name="text">
+    <string>&amp;Clear</string>
+   </property>
+  </action>
+  <action name="action_open_in_tab">
+   <property name="text">
+    <string>Open in view</string>
+   </property>
+  </action>
+  <action name="action_load_xml">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CTestTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>test_runner</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>show_context_menu(QPoint)</slot>
+ </slots>
+</ui>
