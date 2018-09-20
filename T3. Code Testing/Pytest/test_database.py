@@ -4,7 +4,7 @@
 #    db.current_month_entry == (2017, 12, 100.5)
 #    db.last_entry == (2017, 12, 100.5)
 
-from database import Database
+from .database import Database
 from pytest import fixture
 
 
