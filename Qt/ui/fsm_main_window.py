@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\FSMigrationMain.ui'
+# Form implementation generated from reading ui file 'ui/FSMigrationMain.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.2
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_FSMainWindow(object):
     def setupUi(self, FSMainWindow):
         FSMainWindow.setObjectName("FSMainWindow")
-        FSMainWindow.resize(565, 250)
+        FSMainWindow.resize(565, 284)
         self.centralwidget = QtWidgets.QWidget(FSMainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -26,9 +26,11 @@ class Ui_FSMainWindow(object):
         self.line.setObjectName("line")
         self.gridLayout.addWidget(self.line, 7, 0, 1, 3)
         self.lineEdit_host_password = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.lineEdit_host_password.setFocusPolicy(QtCore.Qt.TabFocus)
         self.lineEdit_host_password.setObjectName("lineEdit_host_password")
         self.gridLayout.addWidget(self.lineEdit_host_password, 11, 1, 1, 1)
         self.lineEdit_src = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.lineEdit_src.setFocusPolicy(QtCore.Qt.TabFocus)
         self.lineEdit_src.setObjectName("lineEdit_src")
         self.gridLayout.addWidget(self.lineEdit_src, 0, 1, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -82,28 +84,33 @@ class Ui_FSMainWindow(object):
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.gridLayout.addWidget(self.horizontalSlider, 21, 0, 1, 3)
-        self.textEdit = QtWidgets.QTextEdit(self.gridLayoutWidget)
-        self.textEdit.setObjectName("textEdit")
-        self.gridLayout.addWidget(self.textEdit, 20, 0, 1, 3)
-        self.progressBar_source = QtWidgets.QProgressBar(self.gridLayoutWidget)
-        self.progressBar_source.setProperty("value", 0)
-        self.progressBar_source.setObjectName("progressBar_source")
-        self.gridLayout.addWidget(self.progressBar_source, 16, 1, 1, 2)
+        self.textlog = QtWidgets.QTextEdit(self.gridLayoutWidget)
+        self.textlog.setObjectName("textlog")
+        self.gridLayout.addWidget(self.textlog, 20, 0, 1, 3)
+        self.progressBar_src = QtWidgets.QProgressBar(self.gridLayoutWidget)
+        self.progressBar_src.setProperty("value", 0)
+        self.progressBar_src.setObjectName("progressBar_src")
+        self.gridLayout.addWidget(self.progressBar_src, 16, 1, 1, 2)
         self.progressBar_dest = QtWidgets.QProgressBar(self.gridLayoutWidget)
         self.progressBar_dest.setProperty("value", 0)
         self.progressBar_dest.setObjectName("progressBar_dest")
         self.gridLayout.addWidget(self.progressBar_dest, 17, 1, 1, 2)
         FSMainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(FSMainWindow)
+        self.statusbar.setAutoFillBackground(True)
+        self.statusbar.setInputMethodHints(QtCore.Qt.ImhNone)
         self.statusbar.setObjectName("statusbar")
         FSMainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(FSMainWindow)
+        self.btn_migrate.clicked.connect(self.statusbar.clearMessage)
+        self.btn_recovery.clicked.connect(self.textlog.cut)
         QtCore.QMetaObject.connectSlotsByName(FSMainWindow)
 
     def retranslateUi(self, FSMainWindow):
         _translate = QtCore.QCoreApplication.translate
         FSMainWindow.setWindowTitle(_translate("FSMainWindow", "MainWindow"))
+        self.lineEdit_src.setText(_translate("FSMainWindow", "System Director IP/Virtual IP"))
         self.label.setText(_translate("FSMainWindow", "Source System Director:"))
         self.btn_migrate.setText(_translate("FSMainWindow", "Migrate Filesystem"))
         self.btn_recovery.setText(_translate("FSMainWindow", "System Recovery"))
