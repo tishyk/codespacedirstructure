@@ -15,7 +15,7 @@ def worker():
 
 def initialize():
     print("Initializing some data")
-    time.sleep(10)
+    time.sleep(2)
     print("Unblocking the workers")
     init.set()
 

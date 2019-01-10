@@ -2,8 +2,8 @@ import multiprocessing
 
 def calc_square(numbers, result, v):
     if v.value :
-    for idx, n in enumerate(numbers):
-        result[idx] = n*n
+        for idx, n in enumerate(numbers):
+            result[idx] = n*n
 
 if __name__ == "__main__":
     numbers = [2,3,5]

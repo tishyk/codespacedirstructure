@@ -1,8 +1,7 @@
 import time
 import asyncio
-
+time.clock()
 start = time.time()
-
 
 def tic():
     return 'at %1.1f seconds' % (time.time() - start)
@@ -35,3 +34,4 @@ tasks = [
     ioloop.create_task(gr3())]
 ioloop.run_until_complete(asyncio.wait(tasks))
 ioloop.close()
+print(time.clock())

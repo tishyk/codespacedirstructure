@@ -8,7 +8,7 @@ urls = ['http://www.google.com', 'http://www.youtube.com', 'http://www.python.or
 def print_head(url):
     print('Starting {}'.format(url))
     data = urlopen(url).read()
-    print('{}: {} bytes: {}'.format(url, len(data), data))
+    print('{}: {} bytes: {}'.format(url, len(data), data[:160]))
 
 
 jobs = [gevent.spawn(print_head, _url) for _url in urls]
