@@ -30,7 +30,6 @@ async def fetch_async(pid):
 
 
 async def asynchronous():
-    start = time.time()
     futures = [fetch_async(i) for i in range(1, MAX_CLIENTS + 1)]
     for i, future in enumerate(asyncio.as_completed(futures)):
         result = await future

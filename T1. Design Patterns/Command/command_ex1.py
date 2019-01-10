@@ -6,7 +6,6 @@ class SessionClosed(Exception):
     def __init__(self, value):
         self.value = value
 
-
 # Interface
 class Command:
     def execute(self):
@@ -17,7 +16,6 @@ class Command:
 
     def name(self):
         raise NotImplementedError()
-
 
 # rm command
 class RmCommand(Command):
@@ -30,7 +28,6 @@ class RmCommand(Command):
     def name(self):
         return "rm"
 
-
 # uptime command
 class UptimeCommand(Command):
     def execute(self):
@@ -41,7 +38,6 @@ class UptimeCommand(Command):
 
     def name(self):
         return "uptime"
-
 
 # undo command
 class UndoCommand(Command):
@@ -58,7 +54,6 @@ class UndoCommand(Command):
     def name(self):
         return "undo"
 
-
 # redo command
 class RedoCommand(Command):
     def execute(self):
@@ -73,7 +68,6 @@ class RedoCommand(Command):
     def name(self):
         return "redo"
 
-
 # history command
 class HistoryCommand(Command):
     def execute(self):
@@ -85,7 +79,6 @@ class HistoryCommand(Command):
     def name(self):
         print ("history")
 
-
 # exit command
 class ExitCommand(Command):
     def execute(self):
@@ -95,13 +88,15 @@ class ExitCommand(Command):
         return "exit"
 
 # available commands
-COMMANDS = {'rm': RmCommand(), 'uptime': UptimeCommand(), 'undo':
-            UndoCommand(), 'redo': RedoCommand(), 'history': HistoryCommand(),
+COMMANDS = {'rm': RmCommand(),
+            'uptime': UptimeCommand(),
+            'undo':UndoCommand(),
+            'redo': RedoCommand(),
+            'history': HistoryCommand(),
             'exit': ExitCommand()}
 
 HISTORY = list()
 TRASH = list()
-
 
 # Shell
 def main():

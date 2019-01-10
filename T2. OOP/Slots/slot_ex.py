@@ -27,19 +27,16 @@ Traceback (most recent call last):
 AttributeError: 'list' object has no attribute 'a'
 """
 
-
 class S(object):
-
     __slots__ = ['val']
 
-    def __init__(self, v):
-        self.val = v
 
-
-x = S(42)
+x = S()
+x.val = 10
+print(x.val)
+x.val = 50
 print(x.val)
 
-#x.new = "not possible"
 
 """
 42

@@ -49,8 +49,8 @@ def asynchronous():
     print("Process took: {:.2f} seconds".format(time.time() - start))
 
 
-print('Synchronous:')
-synchronous()
+#print('Synchronous:')
+#synchronous()
 
 print('Asynchronous:')
 ioloop = asyncio.get_event_loop()

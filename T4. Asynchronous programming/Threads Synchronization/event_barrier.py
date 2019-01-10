@@ -5,11 +5,11 @@
 import threading
 import time
 
-init = threading.Event()
+event = threading.Event()
 
 
 def worker():
-    init.wait()  # Wait until initialized
+    event.wait()  # Wait until initialized
     print("I'm worker", threading.currentThread().name)
 
 
@@ -17,12 +17,12 @@ def initialize():
     print("Initializing some data")
     time.sleep(10)
     print("Unblocking the workers")
-    init.set()
+    event.set()
 
 
 # Launch a bunch of worker threads
 threading.Thread(target=worker).start()
-threading.Thread(target=worker).start()
+threading.Thread(target=worker, name='HI_TREAD').start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()

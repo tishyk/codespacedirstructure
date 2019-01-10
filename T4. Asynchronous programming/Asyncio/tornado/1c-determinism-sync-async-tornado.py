@@ -9,11 +9,10 @@ executor = concurrent.futures.ThreadPoolExecutor(8)
 
 
 def task(pid):
-    """Some non-deterministic task
-
-    """
-    sleep(random.randint(0, 2) * 0.001)
+    """ Some non-deterministic task """
+    sleep(0.2)
     print('Task %s done' % pid)
+    return pid
 
 
 def task_async(pid):
@@ -28,6 +27,7 @@ def task_async(pid):
     def callback(f):
         task_future.set_result(f.set_result)
         print('Task %s done' % pid)
+        return task_future
 
     sleep_future.add_done_callback(callback)
     return task_future
@@ -54,7 +54,7 @@ synchronous()
 
 print('Asynchronous:')
 ioloop = ioloop.IOLoop.current()
-ioloop.run_sync(asynchronous)
+print(ioloop.run_sync(asynchronous))
 
 print('Asynchronous Python2-compatible:')
-ioloop.run_sync(asynchronous_python2)
+print(ioloop.run_sync(asynchronous_python2))

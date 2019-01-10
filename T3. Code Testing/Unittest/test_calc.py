@@ -1,7 +1,6 @@
 import unittest
 import calc
 
-
 class TestCalc(unittest.TestCase):
 
     def test_add(self):
@@ -25,7 +24,7 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.divide(-1, -1), 1)
         self.assertEqual(calc.divide(5, 2), 2.5)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertionError):
             calc.divide(10, 0)
 
 

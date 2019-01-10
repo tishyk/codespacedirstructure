@@ -13,9 +13,7 @@ def task(pid):
 
 @asyncio.coroutine
 def task_coro(pid):
-    """Coroutine non-deterministic task
-
-    """
+    """Coroutine non-deterministic task"""
     yield from asyncio.sleep(random.randint(0, 2) * 0.001)
     print('Task %s done' % pid)
 

@@ -1,6 +1,5 @@
 import gevent
 
-
 def foo():
     print('Running in foo')
     gevent.sleep(0)

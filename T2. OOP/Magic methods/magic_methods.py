@@ -1,23 +1,3 @@
-import sys
-
-
-# Usual class declaration and instantiation
-
-class Platform:
-    def __init__(self, platform, another_var):
-        self.platform = platform
-        self.another_var = another_var
-
-    def bar(self):
-        return 'bar'
-
-
-p = Platform('win64', 'some_stuff')
-p.platform
-
-
-# i = Foo(2, 3)
-
 class DarwinPlatform:
     platform = "Mac"
     # do something for specific platform
@@ -26,10 +6,8 @@ class DarwinPlatform:
 class LinuxPlatform:
     platform = "Linux"
 
-
 class WindowsPlatform:
     platform = "Windows"
-
 
 class CPlatform:
     # Base object for platform dependent test
@@ -243,11 +221,15 @@ class CTest(CPlatform):
         # do something on int(test_object) action
         print("Delete substeps call if were present")
         return len(self.steps)
-
+    #
     # def __getattr__(self, item):  # for not implemented attributes only
     #     print('Get attr {}'.format(item))
     #     return 'not implemented'
-
+    #
+    # def __setattr__(self, item, value):  # for not implemented attributes only
+    #     self.__dict__[item] = value
+    #     return 'not implemented
+    #
     # def __getattribute__(self, item):
     #     print("Get attribute: {}".format(item))
     #     return super().__getattribute__(item)
@@ -256,12 +238,13 @@ class CTest(CPlatform):
         print("Get __enter__ method")
         # need to have at least one class/instance avriable for enter and exit methods
         self.filename = self.name
-        self.fileobj = open("{}_log.txt".format(self.filename), "a+")
         return self.fileobj
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         print("Exit log")
         self.fileobj.close()
+
+
 
 class BasicDescriptor:
     def __init__(self, name=None):
@@ -309,46 +292,11 @@ class INT(MyDescriptor):
         super().__set__(instance, value)
 
 class DarwinPlatform:
-    platform = INT('platform')
+    name = MyDescriptor('name')
     def __init__(self, platform):
         self.platform = platform
 
 dwpl = DarwinPlatform(10)
-dwpl.platform
+dwpl.name
 dwpl.platform = "new platform"
 del dwpl.platform
-
-#CReate INT, STR type descriptor
-
-#DarwinPlatform.platform
-Negative_Tests = (1, 5, 10)
-Positive_Tests = (0, 5, 10)
-
-test1 = CTest("HappyPathDemo")
-test2 = CTest("SadPathDemo", steps=[0, 1, 2, 3])
-test3 = CTest("HappyPathDemo", steps=[1, 2, 3, 5, 7, 10])
-
-compare12 = test1 == test2
-compare13 = test1 == test3
-# compare test1 and test3 with different operator  more help here https://portingguide.readthedocs.io/en/latest/comparisons.html
-- test3  # neg method
-print(test3.steps)
-test4 = test2 + test3  # try test3 + test1; test3 + 10; 10 + test3
-print(test4.name, test4.steps)
-# 10 + test1
-# Addition with assignment
-test2 += test3
-print(test2.steps)  # change __str__ to print steps
-print(int(test2))
-# print(test1.noatrr)
-
-with CTest('SadPathDemo') as testlog:  # primitive write to file
-    testlog.write('some stuff')
-
-# Modify __enter__ method for set log level possibility and access to CTest object poss.
-
-# with CTest('SadPathDemo') as test:  # primitive write to file
-#     test.info("Start test") # write msg to file and show into screen
-#     test.warn("Strange things are happenning here:")
-#     test.debug('some stuff to debug') # --> return __dict__
-#     test.error("No way! Test failed")

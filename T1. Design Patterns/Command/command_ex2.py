@@ -1,67 +1,40 @@
-from abc import ABCMeta, abstractmethod
 
+class Command:
+    def execute(self): pass
 
-class Transaction(metaclass=ABCMeta):
-    @abstractmethod
+class Loony(Command):
     def execute(self):
-        pass
+        print("You're a loony.")
 
-
-class SELECT(Transaction):
-    def __init__(self, transaction):
-        self.trans = transaction
-
+class NewBrain(Command):
     def execute(self):
-        self.trans.SELECT()
+        print("You might even need a new brain.")
 
-
-class INSERT(Transaction):
-    def __init__(self, transaction):
-        self.trans = transaction
-
+class Afford(Command):
     def execute(self):
-        self.trans.INSERT()
+        print("I couldn't afford a whole new brain.")
 
-
-class UPDATE(Transaction):
-    def __init__(self, transaction):
-        self.trans = transaction
-
-    def execute(self):
-        self.trans.UPDATE()
-
-
-class TransactionManager:
-    def SELECT(self):
-        print('Performing SELECT operation!')
-
-    def INSERT(self):
-        print('Performing INSERT operation!')
-
-    def UPDATE(self):
-        print('Performing UPDATE operation!')
-
-
-class TransactionBroker:
+# An object that holds commands:
+class Macro:
     def __init__(self):
-        self.__transactionQeueue = []
+        self.commands = []
+    def add(self, command):
+        self.commands.append(command)
+    def run(self):
+        for c in self.commands:
+            c.execute()
+    def run_last(self):
+        last_cmd = self.commands.pop()
+        if last_cmd:
+            last_cmd.execute()
+        else:
+            "No commands to execute"
 
-    def requestTransaction(self, transaction):
-        self.__transactionQeueue.append(transaction)
-        transaction.execute()
+macro = Macro()
 
+macro.add(Loony())
+macro.add(NewBrain())
+macro.add(Afford())
+macro.run()
+macro.run_last()
 
-if __name__ == '__main__':
-    traction = TransactionManager()
-    tr_select = SELECT(traction)
-    tr_insert = INSERT(traction)
-    tr_update = UPDATE(traction)
-
-    brkr = TransactionBroker()
-    brkr.requestTransaction(tr_select)
-    brkr.requestTransaction(tr_insert)
-    brkr.requestTransaction(tr_insert)
-    brkr.requestTransaction(tr_select)
-    brkr.requestTransaction(tr_update)
-    brkr.requestTransaction(tr_insert)
-    brkr.requestTransaction(tr_update)

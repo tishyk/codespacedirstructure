@@ -8,7 +8,7 @@ import threading
 
 
 class Foo(object):
-    lock = threading.RLock()
+    lock = threading.Lock()
 
     def __init__(self):
         self.x = 10

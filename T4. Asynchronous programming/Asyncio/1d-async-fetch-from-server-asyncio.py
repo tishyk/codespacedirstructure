@@ -34,7 +34,6 @@ async def fetch_async(pid):
 
     print('Process {}: {}, took: {:.2f} seconds'.format(
         pid, datetime, time.time() - start))
-
     response.close()
     return datetime
 
