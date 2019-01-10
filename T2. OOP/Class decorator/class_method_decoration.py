@@ -1,12 +1,9 @@
 def decorator(F):
     def wrapper(*args):
-<<<<<<< HEAD
         print('Called with args{}'.format(args))
         print(F)
         print(args)
-=======
         print('Called with args: {}'.format(args))
->>>>>>> 9fa944f5b66b135a4f36c5cc24b3401d96117f22
     return wrapper
 
 @decorator

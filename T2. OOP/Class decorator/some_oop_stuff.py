@@ -27,5 +27,3 @@ print(person.__dict__)
 obj_lst = (Person("Carl",20), Person("Jack",20))
 lst = [setattr(obj, "on_click", "Carl") for obj in obj_lst]
 print(obj_lst[0].name)
-
-def on_click()

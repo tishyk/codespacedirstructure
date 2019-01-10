@@ -34,7 +34,7 @@ class EmployeeCV:
         self.last = last
 
     # use property decorator,
-    # setter -<-- add one line from Responsibilities
+    # setter -<-- add all Responsibilities
     # deleter -<-- reset do default value
     def requirements_list(self):
         print("Revert to initial state:{}".format(self.__Basic_Requirements))

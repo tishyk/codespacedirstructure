@@ -1,4 +1,3 @@
-
 class Employee:
     def __init__(self, first, last, pay):
         self.first = first
@@ -18,8 +17,6 @@ class Employee:
         print("Set None")
         self.first = None
         self.last = None
-
-
 
     @property
     def email(self):
