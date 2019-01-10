@@ -4,7 +4,7 @@ import asyncio
 @asyncio.coroutine
 def foo():
     print('Running in foo')
-    yield from asyncio.sleep(0)
+    yield from asyncio.sleep(0.5)
     print('Explicit context switch to foo again')
 
 
