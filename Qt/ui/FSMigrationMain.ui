@@ -178,6 +178,18 @@
        </property>
       </widget>
      </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btn_name">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>

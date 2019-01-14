@@ -7,13 +7,13 @@ import time
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QInputDialog, QLineEdit
 
 try:
-    from PyQt5 import uic, QtWidgets
+    from PyQt5 import uic
     ui_dir = os.path.dirname(os.path.realpath(__file__))
     FSMainWindow = uic.loadUiType(os.path.join(ui_dir, 'ui', 'FSMigrationMain.ui'))[0]
 except ImportError:
     # uic module is not installed with PyQt library
     # use precompiled ui interface
-    from .ui.fsm_main_window import Ui_FSMainWindow as FSMainWindow
+    from ui.fsm_main_window import Ui_FSMainWindow as FSMainWindow
 
 class App(QMainWindow, FSMainWindow):
 
@@ -29,14 +29,12 @@ class App(QMainWindow, FSMainWindow):
     def on_click_migrate(self):
         print("Migration started..")
         self.get_text(self.lineEdit_src)
-        self.statusBar().showMessage('Message in statusbar on Migration start')
-        # self.
+        self.statusBar.setText('Message in statusbar on Migration start')
 
 
     def on_click_cancel(self):
         print("On click event")
-        self.statusBar().showMessage('Message in statusbar on Cancel')
-        self.close_application()
+        self.statusBar.showMessage('Message in statusbar on Cancel')
         pass
         #self.set_text(self.test_log, "Canceled by user")
 
@@ -44,21 +42,6 @@ class App(QMainWindow, FSMainWindow):
         #     self.progressBar_src.value = i
         #     self.progressBar_dest.value = i + 5
 
-    def close_application(self):
-        choice = QtWidgets.QMessageBox.question(QtWidgets.QMessageBox(), 'Canceling', "Do you REALLY want to do this?",
-                    buttons=QtWidgets.QMessageBox.StandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No))
-        if choice == QtWidgets.QMessageBox.Yes:
-            QtWidgets.QMessageBox.about(QtWidgets.QMessageBox(), 'How you dare?', 'NNNNOOOOOOOOOOOOOOOOOOOOOOOOO!!!!')
-            sys.exit()
-        else:
-            pass
-
-    def download(self):
-        self.completed = 0
-
-        while self.completed < 100:
-            self.completed += 0.0001
-            self.progress.setValue(self.completed)
 
     def set_text(self, ui_obj, text):
         self.ui_obj.setText(text)

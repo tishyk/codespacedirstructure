@@ -27,6 +27,7 @@ def consumer():
     print("Consumer got", item)
     semaphore.release()
 
+
 t2 = threading.Thread(target=consumer)
 t1 = threading.Thread(target=producer)
 t2 = threading.Thread(target=consumer)
