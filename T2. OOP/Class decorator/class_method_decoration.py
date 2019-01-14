@@ -1,9 +1,7 @@
 def decorator(F):
     def wrapper(*args):
-        print('Called with args{}'.format(args))
         print(F)
-        print(args)
-        print('Called with args: {}'.format(args))
+        print('Called with args{}'.format(args))
     return wrapper
 
 @decorator

@@ -1,3 +1,5 @@
+import pprint
+
 
 class Person:
     """Docstring"""
@@ -20,10 +22,11 @@ class Person:
         print(self.age)
 
 person = Person("John", 30)
-print(person.__dict__, Person.__name__, person.__doc__)
+print(person.__dict__)
+print(Person.__name__, person.__doc__)
 person.last = "Last"
 setattr(person, "second", "John2")
-print(person.__dict__)
+pprint.pprint(person.__dict__)
 obj_lst = (Person("Carl",20), Person("Jack",20))
 lst = [setattr(obj, "on_click", "Carl") for obj in obj_lst]
 print(obj_lst[0].name)
