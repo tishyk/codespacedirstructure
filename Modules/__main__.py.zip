@@ -1,0 +1,35 @@
+spam/
+  __init__.py
+  foo.py
+  bar.py
+  
+bash % python3 -m spam.foo   # Run spam.foo as a main module
+
+bash % python3 -m  pip install package # not the same as pip install package  # last on is an ENV variable
+
+bash % python3 -m http.server
+
+
+# Makes a package directory 'spam' executable
+# https://youtu.be/0oTh1CXRaQ0?t=2800
+spam/
+  __init__.py
+  __main__.py   # main executable file
+  foo.py
+  bar.py
+  
+bash % python3 -m spam
+
+# Zip files application
+
+bash % python3 -m zipfile -c spam.zip spam/*
+
+bash % python3 -m spam.zip
+
+bash % python3 -m zipfile -c spam.zip spam/*
+bash % vim spam
+  --> #!/usr/bin/env python3
+bash % cat spam.zip >> spam
+bash % rm spam.zip
+bash % chmod +x spam
+bash % ./spam 
