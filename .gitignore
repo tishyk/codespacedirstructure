@@ -2,15 +2,22 @@
 __pycache__/
 *.py[cod]
 *$py.class
+<<<<<<<<< Temporary merge branch 1
 Qt/
 Qt.7z
 Course_demo.pptx
 Course_program.docx
 apcenv.7z
-.idea/
 
 # C extensions
 *.so
+=========
+
+# C extensions
+*.so
+*.pyd
+*.dll
+>>>>>>>>> Temporary merge branch 2
 
 # Distribution / packaging
 .Python
@@ -20,8 +27,14 @@ dist/
 downloads/
 eggs/
 .eggs/
+<<<<<<<<< Temporary merge branch 1
 lib/
 lib64/
+=========
+lib/*
+!py/storage/isis/lib/
+!py/storage/lib/lib64/
+>>>>>>>>> Temporary merge branch 2
 parts/
 sdist/
 var/
@@ -86,12 +99,21 @@ celerybeat-schedule
 
 # SageMath parsed files
 *.sage.py
+~$*
 
 # Environments
+<<<<<<<<< Temporary merge branch 1
 .env
 .venv
 env/
 apcenv/
+=========
+apcenv/
+.idea/
+.env
+.venv
+env/
+>>>>>>>>> Temporary merge branch 2
 venv/
 ENV/
 env.bak/
@@ -109,3 +131,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+<<<<<<<<< Temporary merge branch 1
+=========
+
+# Local stuff
+py/local/*
+!py/local/__init__.py
+cpp/output/*
+>>>>>>>>> Temporary merge branch 2
