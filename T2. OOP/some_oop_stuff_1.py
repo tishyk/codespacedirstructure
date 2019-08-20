@@ -6,7 +6,7 @@ def recv(maxsize, *args, block=True):
 recv(100, 11, 12, 13, 14, 16, 17)
 
 
-class BaseClass:
+class SomeClass:
     class_var = 10  # class variable
 
     def __init__(self, inst_var):
@@ -16,8 +16,8 @@ class BaseClass:
         print('Inst method')  # instance method
 
 
-print(BaseClass.class_var)
-bc = BaseClass(20)
+print(SomeClass.class_var)
+bc = SomeClass(20)
 print(bc.inst_var)
 print(bc.inst_method())
 
