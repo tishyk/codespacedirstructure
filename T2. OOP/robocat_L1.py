@@ -5,16 +5,18 @@ class Cat():
         self.known_tricks = ['granny', 'kitty']
 
     def show_trick(self, trick):
+        known_trick = False
         if trick in self.known_tricks:
             print(f"Cat show trick {trick}")
+            known_trick = True
         else:
             print('meow..?')
+        return known_trick
 
     def remember_trick(self, trick):
         self.known_tricks.append(trick)
-        print(f"Cat knows a new trick {trick}")
+        print(f"Cat knows a new trick '{trick}'")
         return trick
-
 
 class Robot():
     @staticmethod
@@ -62,7 +64,24 @@ class Memo():
     def get_memo(cls, id):
         return cls.MEMOS.get(id, '')
 
-class RoboCat():
+class RoboCat(Cat, Robot, Memo):
     def __init__(self, serial, country):
         self.country = country
         self.serial = serial
+        super().__init__('Avocato', 'alien')
+
+    def show_trick(self, trick):
+        super().show_trick(trick)
+        self.search_memo(trick)
+
+    def search_memo(self, mid):
+        print("Search from known tricks..")
+        super().search_memo(mid)
+
+    def get_memo(self, mid):
+        super().get_memo(mid)
+
+robocat = RoboCat('1234578', "USA")
+robocat.show_trick('kitty')
+robocat.search_memo('granny')
+robocat.get_memo(0)

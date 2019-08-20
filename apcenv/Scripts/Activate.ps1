@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="D:\Projects\CodeSpace\Course_data\apcenv"
+$env:VIRTUAL_ENV="C:\Projects\robocat\robocat_env"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
@@ -35,7 +35,7 @@ if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     function global:_OLD_VIRTUAL_PROMPT {""}
     copy-item function:prompt function:_OLD_VIRTUAL_PROMPT
     function global:prompt {
-        Write-Host -NoNewline -ForegroundColor Green '(apcenv) '
+        Write-Host -NoNewline -ForegroundColor Green '(robocat_env) '
         _OLD_VIRTUAL_PROMPT
     }
 }
