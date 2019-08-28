@@ -15,4 +15,5 @@ class Meta(type):
 class Event(metaclass=Meta):
     data = 10
 
-event = Event
+event = Event()
+pass    # Debug it from here

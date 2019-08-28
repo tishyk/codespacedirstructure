@@ -129,6 +129,10 @@ class mytype(type):
         clsobj = super().__new__(cls, cls_name, bases, clsdict)
         return clsobj
 
+    def meta_method(cls):
+        print("Before cls object creation",
+              cls.__dict__)
+
 class BaseClass(metaclass=mytype):   # it's set to type by default. You can change it to something else
     class_var = 10  # class variable
 
@@ -142,6 +146,10 @@ class BaseClass(metaclass=mytype):   # it's set to type by default. You can chan
 
 class A(BaseClass): pass
 class B(BaseClass): pass
+A.meta_method()
+
+a = A('Hello')
+#a.meta_method()  #Failed with AttributeError: 'A' object has no attribute 'meta_method'
 #class C(A,B): pass  # should failed
 
 # Metaclass get infomation about class definiton at the time of definition
