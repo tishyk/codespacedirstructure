@@ -1,0 +1,45 @@
+class A:
+    pass
+	
+class B(A):
+    pass
+	
+B.__mro__
+(<class 'B'>, <class 'A'>, <class 'object'>)
+class C():
+    
+    pass
+class D(C):
+    pass
+	
+C.__mro__
+(<class 'C'>, <class 'object'>)
+
+class E(D, B):
+    pass
+E.__mro__
+(<class 'E'>, <class 'D'>, <class 'C'>, <class 'B'>, <class 'A'>, <class 'object'>)
+
+class Q(E, A):
+    pass
+Q.__mro__
+(<class 'Q'>, <class 'E'>, <class 'D'>, <class 'C'>, <class 'B'>, <class 'A'>, <class 'object'>)
+
+class W(B,D,E):
+    pass
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+TypeError: Cannot create a consistent method resolution
+order (MRO) for bases B, E, D
+
+class W(E,B,D):
+    pass
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+TypeError: Cannot create a consistent method resolution
+order (MRO) for bases D, B
+
+class W(E,D, B):
+    pass
+W.__mro__
+(<class 'W'>, <class 'E'>, <class 'D'>, <class 'C'>, <class 'B'>, <class 'A'>, <class 'object'>)
