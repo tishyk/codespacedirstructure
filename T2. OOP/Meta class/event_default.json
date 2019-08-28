@@ -1,0 +1,34 @@
+{
+  "summary": "",
+  "location": "",
+  "description": "",
+  "start": {
+    "dateTime": "",
+    "timeZone": "Europe/Kiev"
+  },
+  "end": {
+    "dateTime": "",
+    "timeZone": ""
+  },
+  "recurrence": [
+    "RRULE:FREQ=DAILY;COUNT=1"
+  ],
+  "attendees": [
+    {
+      "email": "sytischenko@gmail.com"
+    }
+  ],
+  "reminders": {
+    "useDefault": false,
+    "overrides": [
+      {
+        "method": "email",
+        "minutes": 1
+      },
+      {
+        "method": "popup",
+        "minutes": 1
+      }
+    ]
+  }
+}

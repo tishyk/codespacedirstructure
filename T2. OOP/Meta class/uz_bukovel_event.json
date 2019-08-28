@@ -1,0 +1,22 @@
+{
+  "summary": "Заказ ж/д билетов в Буковель",
+  "location": "УЗ 'Киев-Ивано-Франковск'",
+  "description": "Заказ доступен по ссылке: http://uz.gov.ua",
+  "start": {
+    "dateTime": "2018-11-14T22:54:00-07:00",
+    "timeZone": "Europe/Kiev"},
+  "end": {
+    "dateTime": "2018-11-14T22:55:00-07:00",
+    "timeZone": "Europe/Kiev"},
+  "recurrence": [
+    "RRULE:FREQ=DAILY;COUNT=1"
+  ],
+  "attendees": [
+    {"email": "sytischenko@gmail.com"}],
+  "reminders": {
+    "useDefault": false,
+    "overrides": [
+      {"method": "email", "minutes": 1},
+      {"method": "popup", "minutes": 1}]
+  }
+}
