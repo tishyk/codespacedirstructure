@@ -9,6 +9,12 @@ def decorator(cls):
 
     return Wrapper
 
+
+@decorator
+def set_color(self):
+    print("Set color")
+
+
 @decorator
 class C(object):
     def __init__(self, x, y):
