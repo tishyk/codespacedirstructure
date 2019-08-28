@@ -1,12 +1,11 @@
 Here is an example of user defined descriptor:
+
 class MyDescriptor:
     def __init__(self, name):
         self.name = name
 
     def __get__(self, instance, cls):
-        # instance: is the instance being manipulated
-        # e.q. CPlatform instance
-        print("Get name:", self.name)
+        # instance: the instance being manipulated
         return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
@@ -14,6 +13,8 @@ class MyDescriptor:
         instance.__dict__[self.name] = value
 
     def __delete__(self, instance):
+        # e.q. CPlatform instance
+        print("Get name:", self.name)
         print("Delete:", self.name)
 
         del instance.__dict__[self.name]
