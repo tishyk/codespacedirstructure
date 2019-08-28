@@ -2,12 +2,13 @@
 
 class decorator():
     def __init__(self, func):
+        print(10)
         self.func = func
 
     def __call__(self, *args):
         print('Called {func} with args: {args}'.format(
             func=self.func.__name__, args=args))
-        print(self.args)
+        print(self, args)
         return self.func(*args)
 
 
