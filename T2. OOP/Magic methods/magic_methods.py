@@ -68,7 +68,10 @@ print(bp.platform)
 #         has to return an integer, and its result is used for quick key comparison in dictionaries.
 #         Note that this usually entails implementing __eq__ as well. Live by the following rule: a
 #         == b implies hash(a) == hash(b).
-#         __nonzero__(self) Defines behavior for when bool() is called on an instance of your class.
+#         __nonzero__(self)2x Defines behavior for when bool() is called on an instance of your class.
+#         Should return True or False, depending on whether you would want to consider the instance
+#         to be True or False.
+#         __bool__(self)3x Defines behavior for when bool() is called on an instance of your class.
 #         Should return True or False, depending on whether you would want to consider the instance
 #         to be True or False.
 #         __dir__(self) : Defines behavior for when dir() is called on an instance of your class. This
