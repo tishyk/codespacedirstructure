@@ -6,8 +6,8 @@ access to it.
 
 class Singleton(type):
     """
-    Define an Instance operation that lets clients access its unique
-    instance.
+    Define an Instance operation that
+    lets clients access its unique instance.
     """
 
     def __init__(cls, name, bases, attrs, **kwargs):

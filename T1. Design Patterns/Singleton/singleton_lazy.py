@@ -1,4 +1,4 @@
-class Singleton_Lazy(object):
+class Singleton_Lazy():
     __instance = None
 
     def __init__(self):
