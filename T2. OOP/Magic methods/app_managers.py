@@ -5,6 +5,7 @@ from app_abstractions import ABCConnectionManager
 from connections import SSH
 
 class ConnectionManager(ABCConnectionManager):
+    # ABCConnection.__subclasses__() can be used for product types
 
     def __new__(cls, *args, **kwargs):
         if len(cls.get_network_interfaces())<1:
