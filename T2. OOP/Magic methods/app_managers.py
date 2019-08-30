@@ -31,12 +31,18 @@ class ConnectionManager(ABCConnectionManager):
         # create telnet connection
         pass
 
+    def __len__(self):
+        # len(dict.keys()) for simple dict
+        return self.connections
+
     @classmethod
     def get_network_interfaces(cls):
         return ['wlan', 'mobile']
 
 if __name__ == "__main__":
     connections = ConnectionManager()
-    ssh = connections.create_ssh('10.124.198.24')
+    ssh1 = connections.create_ssh('10.124.198.24')
+    ssh2 = connections.create_ssh('10.124.106.29')
     for connection in connections.connections:
-        print(connection)
+        print(f"Known connection {connection}")
+    print(len(connections.connections))

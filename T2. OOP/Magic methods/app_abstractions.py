@@ -7,7 +7,7 @@ from weakref import WeakKeyDictionary
 class ABCConnection(ABC):
     @abstractmethod
     def __init__(self, address, port='22', **kwargs):
-        self.connected = None
+        self.connected = False
         self.address = address
         self.port = port
         self.connection_type = self.__class__.__name__
