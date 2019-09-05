@@ -20,7 +20,7 @@ class Shape(metaclass=abc.ABCMeta):
         self.id = sid
 
     def clone(self):
-        return copy.copy(self)
+        return copy.deepcopy(self)
 
 
 class Rectangle(Shape):
