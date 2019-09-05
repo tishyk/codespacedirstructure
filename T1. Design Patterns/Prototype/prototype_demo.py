@@ -10,13 +10,14 @@ class Prototype:
     """
     Example class to be copied.
     """
-
     pass
+    def clone(self):
+        return copy.deepcopy(self)
 
 
 def main():
     prototype = Prototype()
-    prototype_copy = copy.deepcopy(prototype)
+    prototype_copy = prototype.clone()
 
 
 if __name__ == "__main__":
