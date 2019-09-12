@@ -18,17 +18,17 @@ class TurnedOff(InternalState):
         print("Turning OFF the device!!!")
         return "OFF"
 
-#
-# class IncreaseVolume(InternalState):
-#     def changeState(self):
-#         print("Increasing volume by 10 !!!")
-#         return "+10"
-#
-#
-# class DecreaseVolume(InternalState):
-#     def changeState(self):
-#         print("Decreasing volume by 10 !!!")
-#         return "-10"
+
+class IncreaseVolume(InternalState):
+    def changeState(self):
+        print("Increasing volume by 10 !!!")
+        return "+10"
+
+
+class DecreaseVolume(InternalState):
+    def changeState(self):
+        print("Decreasing volume by 10 !!!")
+        return "-10"
 
 
 class RadioStation(InternalState):
@@ -50,21 +50,21 @@ print('The radios internal state is currently: {}'.format(Radio.getState()))
 
 ON = TurnedOn()
 OFF = TurnedOff()
-#
-# Louder = IncreaseVolume()
-# Lower = DecreaseVolume()
-#
-# print("Turning on the radio!")
-# Radio.setState(ON)
-# Radio.changeState()
-# print('The radios internal state is currently: {}'.format(Radio.getState()))
-#
-# print("Turning off the radio!")
-# Radio.setState(OFF)
-# Radio.changeState()
-# print('The radios internal state is currently: {}'.format(Radio.getState()))
-#
-# print("Increasing the volume!")
-# Radio.setState(Louder)
-# Radio.changeState()
-# print('The radios internal state is currently: {}'.format(Radio.getState()))
+
+Louder = IncreaseVolume()
+Lower = DecreaseVolume()
+
+print("Turning on the radio!")
+Radio.setState(ON)
+Radio.changeState()
+print('The radios internal state is currently: {}'.format(Radio.getState()))
+
+print("Turning off the radio!")
+Radio.setState(OFF)
+Radio.changeState()
+print('The radios internal state is currently: {}'.format(Radio.getState()))
+
+print("Increasing the volume!")
+Radio.setState(Louder)
+Radio.changeState()
+print('The radios internal state is currently: {}'.format(Radio.getState()))
