@@ -32,7 +32,7 @@ class Context:
         """ Call handle method of declared state object"""
         self.state.request_handler()
 
-    def change_state(self, state:State)->None:
+    def change_state(self, state: State) -> None:
         """Changing context object state to any context states"""
         assert isinstance(state, State), "State object not recognized"
         self.state = state
@@ -43,7 +43,7 @@ class ConcreteStateA(State):
     Implement a behavior associated with A state of the Context.
     """
 
-    def request_handler(self)->None:
+    def request_handler(self) -> None:
         """Context handle method for state A"""
         print('Actions for context state A')
 
@@ -53,7 +53,7 @@ class ConcreteStateB(State):
     Implement a behavior associated with B state of the Context.
     """
 
-    def request_handler(self)->None:
+    def request_handler(self) -> None:
         """Context handle method for state B"""
         print('Actions for context state B')
 
