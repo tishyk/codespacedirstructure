@@ -1,105 +1,131 @@
+from abc import ABCMeta, abstractmethod
 from sys import stdout as console
 
 
-# Handling 'exit' command
-class SessionClosed(Exception):
-    def __init__(self, value):
-        self.value = value
+class Command(metaclass=ABCMeta):
+    """Application Command Interface"""
+    name = ""  # Command object name declaration for client usage
 
-# Interface
-class Command:
-    def execute(self):
+    def __init__(self, history, trash):
+        self.history = history
+        self.trash = trash
+
+    @abstractmethod
+    def execute(self) -> None:
+        """Method to call and store required action. Client usage"""
         raise NotImplementedError()
 
-    def cancel(self):
+    def cancel(self) -> None:
+        """Method to revert execute method action and remove it from store. Client usage"""
         raise NotImplementedError()
 
-    def name(self):
-        raise NotImplementedError()
 
-# rm command
 class RmCommand(Command):
-    def execute(self):
+    """ Application rm command description"""
+    name = "rm"
+
+    def execute(self) -> None:
         console.write("You are executed \"rm\" command\n")
 
-    def cancel(self):
+    def cancel(self) -> None:
         console.write("You are canceled \"rm\" command\n")
 
-    def name(self):
-        return "rm"
 
-# uptime command
 class UptimeCommand(Command):
-    def execute(self):
+    """ Application uptime command description"""
+    name = "uptime"
+
+    def execute(self) -> None:
         console.write("You are executed \"uptime\" command\n")
 
-    def cancel(self):
+    def cancel(self) -> None:
         console.write("You are canceled \"uptime\" command\n")
 
-    def name(self):
-        return "uptime"
 
-# undo command
 class UndoCommand(Command):
-    def execute(self):
+    """ Application undo command description"""
+    name = "undo"
+
+    def execute(self) -> None:
         try:
-            cmd = HISTORY.pop()
-            TRASH.append(cmd)
-            console.write("Undo command \"{0}\"\n".format(cmd.name()))
+            cmd = self.history.pop()
+            self.trash.append(cmd)
+            console.write("Undo command \"{0}\"\n".format(cmd.name))
             cmd.cancel()
 
         except IndexError:
             console.write("ERROR: HISTORY is empty\n")
 
-    def name(self):
-        return "undo"
 
-# redo command
 class RedoCommand(Command):
-    def execute(self):
+    """ Application redo command description"""
+    name = "redo"
+
+    def execute(self) -> None:
         try:
-            cmd = TRASH.pop()
-            HISTORY.append(cmd)
-            console.write("Redo command \"{0}\"\n".format(cmd.name()))
+            cmd = self.trash.pop()
+            self.history.append(cmd)
+            console.write("Redo command \"{0}\"\n".format(cmd.name))
             cmd.execute()
         except IndexError:
             console.write("ERROR: TRASH is empty\n")
 
-    def name(self):
-        return "redo"
 
-# history command
 class HistoryCommand(Command):
-    def execute(self):
+    """ Application history command description"""
+    name = "history"
+
+    def execute(self) -> None:
         i = 0
-        for cmd in HISTORY:
-            console.write("{0}: {1}\n".format(i, cmd.name()))
+        for cmd in self.history:
+            console.write("{0}: {1}\n".format(i, cmd.name))
             i = i + 1
 
-    def name(self):
-        print ("history")
 
-# exit command
 class ExitCommand(Command):
-    def execute(self):
-        raise SessionClosed("Good day!")
+    """ Application exit command description.
+     SessionClosed exception raise """
+    name = "exit"
 
-    def name(self):
-        return "exit"
+    def execute(self) -> Exception:
+        raise SessionClosed("Good bye!")
 
-# available commands
-COMMANDS = {'rm': RmCommand(),
-            'uptime': UptimeCommand(),
-            'undo':UndoCommand(),
-            'redo': RedoCommand(),
-            'history': HistoryCommand(),
-            'exit': ExitCommand()}
 
-HISTORY = list()
-TRASH = list()
+class ApplicationCommandsFactory():
+    """Create command objects for current application page"""
 
-# Shell
-def main():
+    HISTORY = list()  # Storage of used commands. Undo data
+    TRASH = list()  # Storage of commands that were removed from history storage. Redo data
+
+    def main_window_cmds(self):
+        """Here is an example of main window available commands"""
+        # {'rm': RmCommand(),
+        # 'uptime': UptimeCommand(),
+        # 'undo':UndoCommand(),
+        # 'redo': RedoCommand(),
+        # 'history': HistoryCommand(),
+        # 'exit': ExitCommand()}
+        return {command.name: command(self.__class__.HISTORY, self.__class__.TRASH)
+                for command in Command.__subclasses__()}
+
+    def popup_window_cmds(self):
+        """Here is an example of popup window available commands"""
+        return {'exit': ExitCommand(self.__class__.HISTORY, self.__class__.TRASH)}
+
+
+class SessionClosed(Exception):
+    """ Handling 'exit' command exception """
+
+    def __init__(self, value: Exception):
+        self.value = value
+
+
+# Shell Application client code
+def main() -> None:
+    commands_storage = ApplicationCommandsFactory()
+    MainWindowCommands = commands_storage.main_window_cmds()
+    PopUpWindowCommands = commands_storage.popup_window_cmds()
+
     try:
         while True:
             console.flush()
@@ -108,19 +134,20 @@ def main():
             cmd = input()
 
             try:
-                command = COMMANDS[cmd]
+                command = MainWindowCommands[cmd]
                 command.execute()
                 if (not isinstance(command, UndoCommand) and not
-                    isinstance(command, RedoCommand) and not
-                    isinstance(command, HistoryCommand)):
-                    TRASH = list()
-                    HISTORY.append(command)
+                isinstance(command, RedoCommand) and not
+                isinstance(command, HistoryCommand)):
+                    commands_storage.TRASH = list()
+                    commands_storage.HISTORY.append(command)
 
             except KeyError:
                 console.write("ERROR: Command \"%s\" not found\n" % cmd)
 
     except SessionClosed as e:
         console.write(e.value)
+
 
 if __name__ == "__main__":
     main()

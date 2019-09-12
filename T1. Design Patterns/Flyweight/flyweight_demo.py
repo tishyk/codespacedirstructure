@@ -2,7 +2,6 @@
 Use sharing to support large numbers of fine-grained objects
 efficiently.
 """
-
 import abc
 
 
@@ -32,11 +31,15 @@ class Flyweight(metaclass=abc.ABCMeta):
     extrinsic state.
     """
 
-    def __init__(self):
-        self.intrinsic_state = None
+    def __init__(self, intrinsic_state, path):
+        self.intrinsic_state = intrinsic_state
+        self.color = 'green'
+        self.border = 2
+        self.path = path
 
     @abc.abstractmethod
-    def operation(self, extrinsic_state):
+    def operation(self, x, y):
+        # canvas.draw(self.path, x,y)
         pass
 
 
@@ -48,14 +51,20 @@ class ConcreteFlyweight(Flyweight):
     of the ConcreteFlyweight object's context.
     """
 
-    def operation(self, extrinsic_state):
+    def __init__(self):
+        self.color = 'green'
+        self.path = 'img'
+        self.border = 2
+
+    def operation(self, x, y):
+        # canvas.draw(self.path, x,y)
         pass
 
 
 def main():
     flyweight_factory = FlyweightFactory()
     concrete_flyweight = flyweight_factory.get_flyweight("key")
-    concrete_flyweight.operation(None)
+    concrete_flyweight.operation(10, 15)
 
 
 if __name__ == "__main__":
