@@ -4,15 +4,17 @@
 import time
 import threading
 
+# count = 10
+
 def countdown(count):
     while count > 0:
         print("Counting down", count)
         count -= 1
-        time.sleep(5)
+        time.sleep(1)
 
 
 # Sample execution
 t1 = threading.Thread(target=countdown, args=(10,))
 t1.start()
-t2 = threading.Thread(target=countdown, args=(20,))
+t2 = threading.Thread(target=countdown, args=(10,))
 t2.start()

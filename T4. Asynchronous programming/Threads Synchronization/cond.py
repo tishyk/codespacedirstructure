@@ -35,11 +35,11 @@ def consumer():
             x = items.pop(0)  # Pop an item off
 
         print(threading.currentThread().name, "got", x)
-        time.sleep(5)
+        time.sleep(1)
 
 
 # Launch a bunch of consumers
-cons = [threading.Thread(target=consumer) for i in range(10)]
+cons = [threading.Thread(target=consumer) for i in range(5)]
 
 for c in cons:
     c.setDaemon(True)
