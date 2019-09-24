@@ -7,7 +7,7 @@ def calc_square(numbers):
         print('square ' + str(n*n))
 
 def calc_cube(numbers):
-    time.sleep(10)
+    time.sleep(1)
     for n in numbers:
         print('cube ' + str(n*n*n))
 
@@ -16,6 +16,7 @@ if __name__ == "__main__":
     p1 = multiprocessing.Process(target=calc_square, args=(arr,))
     p2 = multiprocessing.Process(target=calc_cube, args=(arr,))
 
+    time.perf_counter()
     p1.start()
     p2.start()
 
@@ -23,12 +24,12 @@ if __name__ == "__main__":
     p2.join()
 
     print(p1.pid)
-    # signal.signal(signal.CTRL_C_EVENT, calc_cube)
-    # p1.terminate()
-    # os.kill(p2.pid, signal.CTRL_C_EVENT)
+
+    p1.terminate()
+    os.kill(p2.pid, signal.SIGTERM)
     time.sleep(5)
     print(p1.exitcode)
 
     print(p1.pid)
     print(p2.pid)
-    print("Done!")
+    print(f"Done in {time.perf_counter()}!")
