@@ -2,9 +2,10 @@
 # A simple example of using a mutex lock for critical sections
 
 import threading
+from threading import Lock, Thread
 
-x = 10  # A shared value
-x_lock = threading.Lock()  # A lock for synchronizing access to x
+x = 0  # A shared value
+x_lock = Lock()  # A lock for synchronizing access to x
 
 COUNT = 1000000
 
@@ -20,13 +21,12 @@ def foo():
 def bar():
     global x
     for i in range(COUNT):
-        x_lock.acquire()
-        x -= 1
-        x_lock.release()
+        with x_lock:
+            x -= 1
 
 
-t1 = threading.Thread(target=foo)
-t2 = threading.Thread(target=foo)
+t1 = Thread(target=foo)
+t2 = Thread(target=bar)
 t1.start()
 t2.start()
 t1.join()

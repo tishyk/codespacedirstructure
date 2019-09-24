@@ -14,7 +14,11 @@ def countdown(count):
 
 
 # Sample execution
-t1 = threading.Thread(target=countdown, args=(10,))
+t1 = threading.Thread(target=countdown,
+                      args=(10,),
+                      daemon=True,
+                      name="Car1")
 t1.start()
-t2 = threading.Thread(target=countdown, args=(10,))
+t2 = threading.Thread(target=countdown, args=(20,))
 t2.start()
+print('Done')

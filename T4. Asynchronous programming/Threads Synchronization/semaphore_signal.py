@@ -13,11 +13,11 @@ def producer():
     global item
     print("I'm the producer and I produce data.")
     print("Producer is going to sleep.")
-    semaphore.acquire()
-    item.append("Hello")
-    time.sleep(5)
-    print("Producer is alive. Signaling the consumer.")
-    semaphore.release()
+    with semaphore:
+        item.append("Hello")
+        time.sleep(5)
+        print("Producer is alive. Signaling the consumer.")
+
 
 
 def consumer():
@@ -29,14 +29,18 @@ def consumer():
 
 
 t2 = threading.Thread(target=consumer)
-t1 = threading.Thread(target=producer)
+
 t2 = threading.Thread(target=consumer)
 t3 = threading.Thread(target=consumer)
 t4 = threading.Thread(target=consumer)
 t5 = threading.Thread(target=consumer)
+
+t1 = threading.Thread(target=producer)
+
 t1.start()
 t2.start()
 t3.start()
 t4.start()
 t5.start()
+
 print('Done!')
