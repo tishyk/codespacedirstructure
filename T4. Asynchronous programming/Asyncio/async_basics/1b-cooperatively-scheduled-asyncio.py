@@ -1,7 +1,9 @@
 import time
 import asyncio
-time.clock()
+
+time.perf_counter()
 start = time.time()
+
 
 def tic():
     return 'at %1.1f seconds' % (time.time() - start)
@@ -27,11 +29,11 @@ async def gr3():
     print("Done!")
 
 
-ioloop = asyncio.get_event_loop()
+io_loop = asyncio.get_event_loop()
 tasks = [
-    ioloop.create_task(gr1()),
-    ioloop.create_task(gr2()),
-    ioloop.create_task(gr3())]
-ioloop.run_until_complete(asyncio.wait(tasks))
-ioloop.close()
-print(time.clock())
+    io_loop.create_task(gr1()),
+    io_loop.create_task(gr2()),
+    io_loop.create_task(gr3())]
+io_loop.run_until_complete(asyncio.wait(tasks))
+io_loop.close()
+print(time.perf_counter())

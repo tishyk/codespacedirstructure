@@ -20,14 +20,11 @@ if __name__ == "__main__":
     p1.start()
     p2.start()
 
-    # p1.join()
+    p1.join()
     p2.join()
-
     print(p1.pid)
-
     p1.terminate()
     os.kill(p2.pid, signal.SIGTERM)
-    time.sleep(5)
     print(p1.exitcode)
 
     print(p1.pid)

@@ -12,9 +12,11 @@ def call_url(url):
     print('{}: {} bytes: {}'.format(url, len(data), data[:30]))
     return data
 
-time.clock()
+
+time.perf_counter()
+
 if __name__ == '__main__':
     threads = [Process(target=call_url, args=(url,)) for url in urls]
     [thread.start() for thread in threads]
     [thread.join() for thread in threads]
-    print('Done', time.clock())
+    print('Done', time.perf_counter())

@@ -5,7 +5,7 @@ import aiohttp
 
 URL = 'https://api.github.com/events'
 MAX_CLIENTS = 3
-
+start = time.time()
 
 async def aiohttp_get(url):
     async with aiohttp.ClientSession() as session:

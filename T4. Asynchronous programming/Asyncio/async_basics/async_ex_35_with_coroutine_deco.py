@@ -60,6 +60,7 @@ def doit():
     final = yield from apply_frosting(cake, frosting)
     print("Final product: {}".format(final))
 
+
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(doit())

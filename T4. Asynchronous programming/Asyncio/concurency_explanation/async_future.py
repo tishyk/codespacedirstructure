@@ -47,7 +47,7 @@ print(future.result())
 loop.close()
 """
 
-"""
+
 # Task
 loop = asyncio.get_event_loop()
 future = loop.create_future()
@@ -57,6 +57,5 @@ search_task = loop.create_task(coro_obj)
 loop.create_task(monitor_feature(search_task, 1))
 loop.run_until_complete(search_task)
 print(search_task.result())
-loop.close()
-"""
+
 

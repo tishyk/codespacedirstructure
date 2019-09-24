@@ -1,5 +1,6 @@
 import requests
 import time
+
 urls = ['http://www.google.com', 'http://devdocs.io', 'http://www.python.org']
 
 
@@ -10,6 +11,7 @@ def call_url(url):
     print('{}: {} bytes: {}'.format(url, len(data), data[:30]))
     return data
 
-time.clock()
+
+time.perf_counter()
 [call_url(url) for url in urls]
-print('Done', time.clock())
+print('Done', time.perf_counter())

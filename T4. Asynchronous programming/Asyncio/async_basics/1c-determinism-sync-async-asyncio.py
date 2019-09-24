@@ -19,6 +19,7 @@ def synchronous():
     for i in range(1, 10):
         task(i)
 
+
 async def asynchronous():
     tasks = [asyncio.ensure_future(task_coro(i)) for i in range(1, 10)]
     await asyncio.wait(tasks)
