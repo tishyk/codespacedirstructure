@@ -4,7 +4,7 @@ def countdown_task(n):
         yield n
         n -= 1
 
-
+# Can we yield nothing? What for?
 # How many yield can be here?
 # Can we use return in generator?
 # Can we get data from other generator inside generator?
