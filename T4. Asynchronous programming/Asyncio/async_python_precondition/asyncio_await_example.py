@@ -7,7 +7,9 @@ import asyncio
 import aiohttp
 import time
 
-urls = ['http://www.google.com', 'http://devdocs.io', 'http://www.python.org']
+urls = ['http://www.google.com',
+        'http://devdocs.io',
+        'http://www.python.org']
 
 
 async def call_url(url):
