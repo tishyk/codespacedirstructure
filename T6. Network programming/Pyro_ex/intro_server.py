@@ -1,3 +1,6 @@
+# $ python greeting-server.py
+#   Ready. Object uri = PYRO:obj_edb9e53007ce4713b371d0dc6a177955@localhost:51681
+
 # saved as greeting-server.py
 import Pyro4
 
