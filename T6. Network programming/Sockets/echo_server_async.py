@@ -9,18 +9,18 @@ async def echo_server(address, loop):
     con.bind(address)
     con.listen(2)
     con.setblocking(False)
+    print('Server started..')
 
     while True:
         client, addr = await loop.sock_accept(con)
         print("Connection from", addr)
         future = loop.create_task(echo_handler(client))
-        pass
 
 async def echo_handler(client):
     while True:
         if not loop.is_closed():
             data = await loop.sock_recv(client, 10000)
-            print(data)
+            pprint(data)
             asyncio.wait(print(i) for i in range(50000))
             if not data:
                 break
