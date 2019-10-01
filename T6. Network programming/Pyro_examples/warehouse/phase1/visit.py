@@ -1,10 +1,8 @@
 # This is the code that runs this example.
-import Pyro5.api
+from warehouse import Warehouse
 from person import Person
 
-
-uri = input("Enter the uri of the warehouse: ").strip()
-warehouse = Pyro5.api.Proxy(uri)
+warehouse = Warehouse()
 janet = Person("Janet")
 henry = Person("Henry")
 janet.visit(warehouse)
