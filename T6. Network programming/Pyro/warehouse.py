@@ -26,7 +26,7 @@ def main():
             {
                 Warehouse: "example.warehouse"
             },
-            ns = False)
+            ns = False, host="192.168.0.10", port=9000)
 
 if __name__=="__main__":
     main()
