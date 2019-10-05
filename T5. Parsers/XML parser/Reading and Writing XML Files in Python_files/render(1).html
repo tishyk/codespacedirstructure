@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0171)https://www.btserve.com/render?ifrId=waldo-tag-3884-4&code=waldo-tag-3884&t=bidt-sra&auctionId=bc50ed96-bde4-4198-baa0-737e3ff388ea|waldo-tag-3884|4&v2=true&passback=false -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script>
+      var BT = BT || {};
+      BT.RENDER_HOST = 'https://www.btserve.com';
+      BT.CREATIVE_HOST = 'https://d250tsfwz8kxvq.cloudfront.net/';
+      BT.CODE = 'waldo-tag-3884';
+      BT.IFRID = 'waldo-tag-3884-4';
+      BT.SRA = true;
+      BT.REMOVE_NON_ANIMATED_OVERLAY_BIDDERS ='ix,rubicon,openx';
+      BT.LOG_CODES = {
+        EVENT: {
+            AD_LOADED : '20000400'
+        }
+      };
+      var parentUrl;
+      try {
+        parentUrl = window.top.document.referrer;
+      } catch (e) {
+        parentUrl = document.referrer;
+      }
+      parentUrl = parentUrl ? parentUrl : location.ancestorOrigins[0];
+      var msg = {
+        type: 'bidt-sra-load',
+        ifrId: BT.IFRID,
+        code: BT.CODE,
+        notifyHost: BT.RENDER_HOST
+      }
+      window.parent.postMessage(msg, parentUrl);
+     
+      function setRenderSize(doc, width, height) {
+        if (doc.defaultView && doc.defaultView.frameElement) {
+          doc.defaultView.frameElement.width = width;
+          doc.defaultView.frameElement.height = height;
+        }
+      }
+      function renderAd(doc, bid) {
+        if (doc && bid) {
+          if (bid.adm) {
+              doc.write(bid.adm);
+              setRenderSize(doc, bid.width, bid.height)
+          }
+          doc.close();
+        }
+      }
+
+      window.addEventListener('message', function (msg) {
+        if (msg.data.type && msg.data.type === 'bidt-sra-render') {
+          let winningBid = msg.data.winningBid;
+          let bidderCode = winningBid.bidderCode;
+          let iframe = document.getElementById('render');
+          let iframeDoc = iframe.contentWindow.document;
+          iframe.width = winningBid.width;
+          iframe.height = winningBid.height;
+          if ((winningBid.hasOwnProperty('adm') && (winningBid.isWhitelistedBidder || winningBid.fingerprint)) || winningBid.isPassback) {
+            renderAd(iframeDoc, winningBid);
+          }
+        }
+    }, false);  
+    </script>
+    <style type="text/css">
+      #bidthru_ifr {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body style="margin: 0px; padding: 0px;" marginwidth="0" marginheight="0">
+    <iframe id="render" scrolling="no" allowtransparency="true" frameborder="0" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups" width="728" height="90" src="./saved_resource(4).html"></iframe>
+    <div class=".ad-label-top" style="text-align: left; padding: 0px; margin: -20px 0px 0px; position: absolute; top: 20px; height: 20px;">
+    <span style="background: rgba(255, 255, 255, 0.7); color: #444; font-size: 10px; font-weight: bold; font-family: sans-serif; margin: 0px; padding: 6px; border-radius: 0 0 5px 0;">
+      AD
+    </span>
+  </div>
+  
+
+</body></html>

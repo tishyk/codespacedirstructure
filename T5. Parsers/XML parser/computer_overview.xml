@@ -1,0 +1,12 @@
+<TISHYK-WIN10>
+    <system>
+        <system_item item="NUMBER_OF_PROCESSORS">4</system_item>
+        <system_item item="OS">Windows_NT</system_item>
+        <system_item item="PROCESSOR_ARCHITECTURE">x86</system_item>
+        <system_item item="PROCESSOR_ARCHITEW6432">AMD64</system_item>
+        <system_item item="PROCESSOR_IDENTIFIER">Intel64 Family 6 Model 78 Stepping 3, GenuineIntel</system_item>
+        <system_item item="PROCESSOR_LEVEL">6</system_item>
+        <system_item item="PROCESSOR_REVISION">4e03</system_item>
+        <system_item item="PYCHARM_HOSTED">1</system_item>
+    </system>
+</TISHYK-WIN10>
