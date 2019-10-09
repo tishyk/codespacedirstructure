@@ -1,0 +1,33 @@
+{
+
+    "parameters": {
+
+        "cmdList": [
+
+            {
+
+                "cmd": "/usr/bin/make -f Makefile BUILDTYPE=Debug BUILD_ID=<buildNumber> installer",
+
+                "workDir": "<sourceWorkspace>/unity/m34/FUSEClient"
+
+            },
+
+            {
+
+                "cmd": "/usr/bin/make -f Makefile BUILDTYPE=Debug BUILD_ID=<buildNumber>",
+
+                "workDir": "<sourceWorkspace>/unity/m34/nxfilegateway"
+
+            }
+
+        ],
+
+        "postp": "postp --loadProperty /projects/Burl-Storage/devScriptMatchers"
+
+    },
+
+    "procedure": "Cmd_Runner_2.1",
+
+    "project": "Lib_Framework"
+
+}
