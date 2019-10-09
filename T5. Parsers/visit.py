@@ -8,7 +8,7 @@ from person import Person
 parser = argparse.ArgumentParser()
 
 
-parser.add_argument('uri', type=str, metavar="URI", default='PYRO:argument.warehouse@192.168.0.10:9000',
+parser.add_argument('--uri', type=str, metavar="URI", default='PYRO:argument.warehouse@192.168.0.10:9000',
                     help="URI address to obtaining the pyro server")
 
 parser.add_argument('-d', '--deposit', type=str, default='laptop', help="Item to store")

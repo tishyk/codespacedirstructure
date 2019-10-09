@@ -49,15 +49,15 @@ class Person(object):
         env = os.environ
 
         # create the file structure
-        data = ET.Element(env['USER'])
-        os_items = ET.SubElement(data, 'system')
+        root = ET.Element(env['USERNAME'])
+        os_items = ET.SubElement(root, 'system')
         for key in env.keys():
             if 'OS' in key or 'PROCESSOR' in key or 'LC' in key:
                 system_item = ET.SubElement(os_items, 'system_attribute')
                 system_item.set('name', key)
                 system_item.text = env[key]
 
-        mydata = ET.tostringlist(data, encoding="unicode", method='xml')
+        mydata = ET.tostringlist(root, encoding="unicode", method='xml')
         if to_file:
             # create a new XML file with the results
             with open("computer.xml", "w") as xml_file:
