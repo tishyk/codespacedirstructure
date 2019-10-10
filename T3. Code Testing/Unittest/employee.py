@@ -22,7 +22,6 @@ class Employee:
 
     def monthly_schedule(self, month):
         response = requests.get(f'http://company.com/{self.last}/{month}')
-        response = requests.get(f'http://company.com/{month}')
         if response.ok:
             return response.text
         else:
