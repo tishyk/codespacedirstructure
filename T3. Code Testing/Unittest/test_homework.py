@@ -71,6 +71,64 @@ class MyTestCase(unittest.TestCase):
         test_string = "Hello World and Coders"
         self.assertEqual("sredoC dna dlroW olleH", homework.task10(test_string))
 
+    def test_task11(self):
+        num = 63
+        self.assertEqual("1:3", homework.task11(num))
+        num = 15
+        self.assertEqual("0:15", homework.task11(num))
+        num = 179
+        self.assertEqual("2:59", homework.task11(num))
+
+    def test_task12(self):
+        test_string = "fun&!! time"
+        self.assertEqual("time", homework.task12(test_string))
+        test_string = "I love dogs"
+        self.assertEqual("love", homework.task12(test_string))
+
+    def test_task13(self):
+        test_string = "My name is Michele"
+        self.assertEqual("Michele is name My", homework.task13(test_string))
+
+    def test_task14(self):
+        num = 1
+        self.assertEqual([1], homework.task14(num))
+        num = 2
+        self.assertEqual([1, 1], homework.task14(num))
+        num = 7
+        self.assertEqual([1, 1, 2, 3, 5, 8, 13], homework.task14(num))
+
+    def test_task15(self):
+        test_list = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+        self.assertEqual([4, 16, 36, 64, 100], homework.task15(test_list))
+
+    def test_task16(self):
+        num = 4
+        self.assertEqual(10, homework.task16(num))
+
+    def test_task17(self):
+        num = 4
+        self.assertEqual(24, homework.task17(num))
+
+    def test_task18(self):
+        test_string = "abcd"
+        self.assertEqual("bcdE", homework.task18(test_string))
+        test_string = "bazaar"
+        self.assertEqual("cbAbbs", homework.task18(test_string))
+
+    def test_task19(self):
+        test_string = "hello"
+        self.assertEqual("ehllo", homework.task19(test_string))
+        test_string = "edCBa"
+        self.assertEqual("BCade", homework.task19(test_string))
+
+    def test_task20(self):
+        num1 = num2 = 2
+        self.assertFalse(homework.task20(num1, num2))
+        num2 = 3
+        self.assertTrue(homework.task20(num1, num2))
+        num2 = 1
+        self.assertFalse(homework.task20(num1, num2))
+
 
 if __name__ == '__main__':
     unittest.main()
