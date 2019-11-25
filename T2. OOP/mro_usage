@@ -6,9 +6,10 @@ class B(A):
 	
 B.__mro__
 (<class 'B'>, <class 'A'>, <class 'object'>)
+
 class C():
-    
     pass
+
 class D(C):
     pass
 	
@@ -17,6 +18,7 @@ C.__mro__
 
 class E(D, B):
     pass
+
 E.__mro__
 (<class 'E'>, <class 'D'>, <class 'C'>, <class 'B'>, <class 'A'>, <class 'object'>)
 
