@@ -37,7 +37,7 @@ class ConnectionManager(ABCConnectionManager):
 
     @classmethod
     def get_network_interfaces(cls):
-        return ['wlan', 'mobile']
+        return ['wlan', 'modem']
 
 if __name__ == "__main__":
     connections = ConnectionManager()
