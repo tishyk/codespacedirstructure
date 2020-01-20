@@ -1,5 +1,5 @@
 import itertools
-
+import sys
 # for number in itertools.count():
 #     print(number)
 
@@ -11,9 +11,11 @@ import itertools
 #     print(repeated_value)
 #
 #
-# for infinite_cycle in itertools.cycle("abcdefg"):
+# x = itertools.cycle("abcde")
+# for infinite_cycle in x:
 #     print(infinite_cycle)
 
-# for generator_slice in itertools.islice(
-#         itertools.chain(range(10, 100), itertools.count(100, 5)), 200):
-#     print(generator_slice)
+for generator_slice in itertools.islice(
+        itertools.chain(range(10, 100), itertools.count(100, 5)),
+        200):
+    print(generator_slice)

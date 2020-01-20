@@ -11,6 +11,7 @@ class BaseSSH:
     DEFAULT_TIMEOUT = 60
 
     def __init__(self, ip, login, password):
+        #ssh = BaseSSH("192.168.0.100", "pi", "adelaida01")
         self.ip = ip
         self.login = login
         self.agent_password = password
@@ -153,9 +154,9 @@ class BaseSSH:
         seconds_elapsed = int(t_end - t_begin)
         print('Sent, elapsed time {}.'.format(humanize.naturaldelta(seconds_elapsed)))
 
-ssh = BaseSSH("192.168.1.108", "tishyk", "tishyk")
+ssh = BaseSSH("192.168.0.100", "pi", "adelaida01")
 ssh.connect()
-ssh.call("echo 'hello from ssh object' | systemd-cat")
-output = ssh.check_output("ls -l /home/tishyk")
+ssh.call("cd /")
+output = ssh.check_output("cd /home && ls -l")
 print(output)
-ssh.send_package('paramiko_example.py', "/home/tishyk/paramiko_example.py")
+#ssh.send_package('paramiko_example.py', "/home/tishyk/paramiko_example.py")

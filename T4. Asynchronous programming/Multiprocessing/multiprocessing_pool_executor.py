@@ -10,11 +10,11 @@ def func(n):
 
 
 if __name__ == "__main__":
-    with ProcessPoolExecutor() as executor:
-        p1 = executor.submit(func, 3)
-        p2 = executor.submit(func, 5)
-        # print(p1.result())
-        # print(p2.result())
+    with ProcessPoolExecutor(2) as executor:
+        p1 = executor.submit(func, 4)
+        p2 = executor.submit(func, 1)
+        print(p1.result(), 1)
+        print(p2.result(), 2)
         for proc in as_completed((p1, p2)):
             print(f"Completed result: {proc.result()}")
 

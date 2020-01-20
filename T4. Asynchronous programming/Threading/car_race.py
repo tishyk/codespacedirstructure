@@ -45,7 +45,7 @@ class RaceCar(threading.Thread):
         self.is_alive()
 
     def run(self):
-        print("Waiting for green light to start the race..")
+        print("Car {} waiting for green light to start the race..".format(self.car))
         self.track.green_light.wait()
 
         while self.distance > 0:

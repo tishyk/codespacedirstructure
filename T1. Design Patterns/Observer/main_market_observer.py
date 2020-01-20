@@ -8,5 +8,5 @@ if __name__ == "__main__":
     trading_exchange.register(amc_market)
     trading_exchange.send_update('8am','GMT', dowjones=10125)
     trading_exchange.register(eur_market)
-    trading_exchange.send_update('9am','GMT', dowjones=10129)
+    trading_exchange.send_update('9am','GMT', avid_jones=20129, dowjones=10129)
 

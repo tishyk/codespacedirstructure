@@ -38,3 +38,12 @@ class AmericanMarket(Observer):
 class EuropeanMarket(Observer):
     def update(self, *args, **kwargs):
         print("European Market get next updates:{}; {}".format(args, kwargs))
+
+"""
+1. Create Server
+2. create clients
+3. register clients on server
+4. client do something
+5. server send updates
+4. client do something
+"""

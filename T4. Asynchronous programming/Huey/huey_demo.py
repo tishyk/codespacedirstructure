@@ -18,7 +18,7 @@ task locking
 task pipelines and chains
 """
 
-from huey import Huey, BlackHoleHuey, MemoryHuey, SqliteHuey, RedisExpireHuey, PriorityRedisHuey, RedisHuey
+from huey import crontab, Huey, BlackHoleHuey, MemoryHuey, SqliteHuey, RedisExpireHuey, PriorityRedisHuey, RedisHuey
 import time
 
 huey = MemoryHuey('my-app')

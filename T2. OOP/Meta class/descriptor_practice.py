@@ -5,12 +5,12 @@ class MyDescriptor:
 
     def __get__(self, instance, cls):
         # instance: is the instance being manipulated
-        # e.q. CPlatform instance
         print("Get name:", self.name)
-        return instance.__dict__[self.name]
+        return instance.__dict__[self.name]()
 
     def __set__(self, instance, value):
         print("Set value:", value)
+        assert callable(value)
         instance.__dict__[self.name] = value
 
     def __delete__(self, instance):
@@ -23,12 +23,16 @@ class INT(MyDescriptor):
             raise TypeError("Expected type 'int'")
         super().__set__(instance, value)
 
-class DarwinPlatform:
+class Platform:
     platform = INT('platform')
     def __init__(self, platform):
         self.platform = platform
+        self.hello = 20
 
-dwpl = DarwinPlatform(10)
+
+dwpl = Platform(10)
 dwpl.platform
+print(dwpl.hello)
+
 dwpl.platform = "new platform"
-del dwpl.platform
+# del dwpl.platform

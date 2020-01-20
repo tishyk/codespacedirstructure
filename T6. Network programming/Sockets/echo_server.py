@@ -1,5 +1,5 @@
 # Simple server for return "Got: " + client msg
-
+import pickle
 from socket import *
 
 def echo_server(address):
@@ -13,14 +13,19 @@ def echo_server(address):
         echo_handler(client)
 
 def echo_handler(client):
+
     while True:
         data = client.recv(10000)
-        print('*', data)
+        try:
+            load = pickle.loads(data)
+            print(load)
+        except EOFError:
+            print('*', data)
         if not data:
             break
-        client.sendall(b"Got: " + data)
+        client.sendall(data + b"Got: ")
     print("Connection closed")
     client.close()
 
 if __name__ == "__main__":
-    echo_server(('', 8080))
+    echo_server(('', 3002))

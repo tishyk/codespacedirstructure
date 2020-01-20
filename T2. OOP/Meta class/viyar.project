@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<project currency="грн" version="1" costOperation="0" costMaterial="0" cost="0" date="" orderDate="" productFilter="false">
+  <viyar version="24">
+    <user name="T S" phone="0634718993" email="tishyk@mail.ru" uuid="" fileName="dsp_2019-08-18_12-55-16" ZakazBazar=""/>
+    <order delivery="d" uuid=""/>
+    <constructor id="dsp" site="viyar.ua"/>
+    <materials>
+      <material id="1" type="sheet" offcut_l="10" offcut_t="10" offcut_r="5" offcut_b="5" userOffcut="0" directCut="0" article="34022" guid="76906" oldGuid="76906" uuid="806fec02-c5f1-11e6-9327-005056b13af7" name="ДСП Egger W 1100 ST9 Белый Альпийский 2800х2070х18мм" width="2800" height="2070" thickness="18">
+        <parts/>
+      </material>
+      <material id="2" type="band" article="35424" guid="80563" oldGuid="80563" uuid="d366de69-fe87-11e6-ac31-005056b13af7" name="78335 Кромка ABS Белый альпийский PE14 22х0,4мм (300 м.п.) REHAU" height="22" thickness="0.5" markingColor="rgb(255,0,0)"/>
+    </materials>
+    <details edge="LazerPur" typeEdge="edge">
+      <detail id="1" material="1" barcode="" amount="3" width="665.0" height="1650.0" description="3x" slidingfilling="0" timestamp="1566122179" multiplicity="1" grain="0" decoratedSide="" marker="1" machineCode="1">
+        <edges joint="0">
+          <left type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <top type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <right type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <bottom type="kromka" param="2" cut="0" drop="0" curv="0" pur="1"/>
+        </edges>
+        <operations>
+          <operation id="1" type="drilling" subtype="13" side="5" x="70.0" y="9" xo="70.0" yo="9" xl="0" yl="0" d="8" depth="20" millD="0"/>
+          <operation id="2" type="drilling" subtype="13" side="5" x="330.0" y="9" xo="330.0" yo="9" xl="0" yl="0" d="8" depth="20" millD="0"/>
+          <operation id="3" type="drilling" subtype="13" side="5" x="595.0" y="9" xo="595.0" yo="9" xl="0" yl="0" d="8" depth="20" millD="0"/>
+          <operation id="4" type="drilling" subtype="15" side="5" x="200.0" y="9" xo="200.0" yo="9" xl="0" yl="0" d="8" depth="28" millD="0"/>
+          <operation id="5" type="drilling" subtype="5" side="6" x="200.0" y="34" xo="200.0" yo="34" xl="0" yl="0" d="15" depth="13.8" millD="0"/>
+          <operation id="6" type="drilling" subtype="15" side="5" x="465.0" y="9" xo="465.0" yo="9" xl="0" yl="0" d="8" depth="28" millD="0"/>
+          <operation id="7" type="drilling" subtype="5" side="6" x="465.0" y="34" xo="465.0" yo="34" xl="0" yl="0" d="15" depth="13.8" millD="0"/>
+        </operations>
+      </detail>
+      <detail id="2" material="1" barcode="" amount="4" width="773.0" height="1650.0" description="4x" slidingfilling="0" timestamp="1566122228" multiplicity="1" grain="0" decoratedSide="" marker="1" machineCode="1">
+        <edges joint="0">
+          <left type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <top type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <right type="" param="0" cut="0" drop="0" curv="0" pur="0"/>
+          <bottom type="kromka" param="2" cut="0" drop="0" curv="0" pur="1"/>
+        </edges>
+        <operations>
+          <operation id="1" type="drilling" subtype="15" side="5" x="250.0" y="9" xo="250.0" yo="9" xl="0" yl="0" d="8" depth="28" millD="0"/>
+          <operation id="2" type="drilling" subtype="5" side="6" x="250.0" y="34" xo="250.0" yo="34" xl="0" yl="0" d="15" depth="13.8" millD="0"/>
+          <operation id="3" type="drilling" subtype="15" side="5" x="523.0" y="9" xo="523.0" yo="9" xl="0" yl="0" d="8" depth="28" millD="0"/>
+          <operation id="4" type="drilling" subtype="5" side="6" x="523.0" y="34" xo="523.0" yo="34" xl="0" yl="0" d="15" depth="13.8" millD="0"/>
+          <operation id="5" type="drilling" subtype="13" side="5" x="70.0" y="9" xo="70.0" yo="9" xl="0" yl="0" d="8" depth="20" millD="0"/>
+          <operation id="6" type="drilling" subtype="13" side="5" x="385.0" y="9.0" xo="385.0" yo="9.0" xl="0" yl="0" d="8" depth="20" millD="0"/>
+          <operation id="7" type="drilling" subtype="13" side="5" x="703.0" y="9" xo="703.0" yo="9" xl="0" yl="0" d="8" depth="20" millD="0"/>
+        </operations>
+      </detail>
+    </details>
+    <products>
+      <product id="1" article="61281" uuid="9e22a9b2-1f5f-11e1-9917-1cc1dee862d0" name="Эксцентриковая стяжка Rastex 15/18, цинк (9056599) Hettich" amount="0.056"/>
+      <product id="2" article="83984" uuid="0becb7cb-1f59-11e1-9917-1cc1dee862d0" name="Дюбель двойной под Rastex DU 853 49/30мм (79568) Hettich" amount="0.028"/>
+    </products>
+  </viyar>
+</project>

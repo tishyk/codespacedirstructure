@@ -38,7 +38,6 @@ class Radio:
 
     def __init__(self):
         """We have an AM state and an FM state"""
-
         self.amstate = AmState(self)
         self.fmstate = FmState(self)
         self.state = self.amstate

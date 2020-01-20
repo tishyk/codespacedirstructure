@@ -8,13 +8,14 @@ import threading
 
 
 class Foo(object):
-    lock = threading.Lock()
-
+    lock = threading.RLock()
     def __init__(self):
         self.x = 10
 
     def add(self, n):
+        pass
         with Foo.lock:
+            # need lock
             self.x += n
 
     def incr(self):
@@ -23,6 +24,7 @@ class Foo(object):
 
     def decr(self):
         with Foo.lock:
+            # locked
             self.add(-1)
 
 
@@ -33,16 +35,13 @@ def adder(f, count):  # change to class usage
     while count > 0:
         f.incr()
         count -= 1
-
-
 def subber(f, count):
     while count > 0:
         f.decr()
         count -= 1
 
-
 # Create some threads and make sure it works
-COUNT = 100000
+COUNT = 10
 f = Foo()
 t1 = threading.Thread(target=adder, args=(f, COUNT))
 t2 = threading.Thread(target=subber, args=(f, COUNT))

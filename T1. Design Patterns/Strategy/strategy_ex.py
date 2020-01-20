@@ -1,7 +1,9 @@
 # FunctionObjects/StrategyPattern.py
 
 # The strategy interface:
-class FindMinima:
+import abc
+
+class FindMinima():
     # Line is a sequence of points:
     def algorithm(self, line) : pass
 

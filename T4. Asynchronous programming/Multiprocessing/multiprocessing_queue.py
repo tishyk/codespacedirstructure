@@ -1,15 +1,15 @@
 import multiprocessing
 
+
 def calc_square(numbers, q):
     for n in numbers:
-        q.put(n*n)
+        q.put(n * n)
+
 
 if __name__ == "__main__":
-    numbers = [2,3,5]
-    balance = multiprocessing.Value('i', 0)
-    result = multiprocessing.Array('i', 3)
+    numbers = [2, 3, 5]
     q = multiprocessing.JoinableQueue()
-    p = multiprocessing.Process(target=calc_square, args=(numbers,q))
+    p = multiprocessing.Process(target=calc_square, args=(numbers, q))
     p.start()
     p.join()
 

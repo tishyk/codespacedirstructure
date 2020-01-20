@@ -6,8 +6,7 @@ from math import sqrt
 from main import *
 
 def fibonacci():
-   yield 2
-   a = 2
+   a = 1
    b = 1
    while True:
       yield b

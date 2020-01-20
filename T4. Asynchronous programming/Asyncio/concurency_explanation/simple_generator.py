@@ -1,13 +1,18 @@
-def countdown_task(n):
+
+
+def countdown(n):
     yield
-    while n > 0:
-        yield n
-        n -= 1
-        # return 10
+    print("inside")
+    yield 10
+
+def countdown_task(n):
+    yield from countdown(n)
+
 
 
 for value in countdown_task(10):
     print(value)
+    print('Step')
 
 
 # Can we yield nothing? What for?
@@ -28,6 +33,6 @@ def countdown_10():
     yield from countdown_task(10)
     print("Countdown function end")
 
-
-for count in countdown_10():
-    print(count)
+#
+# for count in countdown_10():
+#     print(count)

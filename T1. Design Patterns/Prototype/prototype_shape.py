@@ -19,6 +19,7 @@ class Shape(metaclass=abc.ABCMeta):
     def set_id(self, sid):
         self.id = sid
 
+
     def clone(self):
         return copy.deepcopy(self)
 

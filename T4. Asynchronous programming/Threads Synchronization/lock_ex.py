@@ -2,18 +2,23 @@
 # A simple example of using a mutex lock for critical sections
 
 import threading
-from threading import Lock, Thread
+from threading import RLock, Thread
 
 x = 0  # A shared value
-x_lock = Lock()  # A lock for synchronizing access to x
+x_lock = RLock()  # A lock for synchronizing access to x
 
 COUNT = 1000000
 
+def func(x):
+    x_lock.acquire()
+    assert isinstance(x, int), "Not int"
+    x_lock.release()
 
 def foo():
     global x
     for i in range(COUNT):
         x_lock.acquire()
+        func(x)
         x += 1
         x_lock.release()
 

@@ -6,12 +6,11 @@ def countdown_task(n):
         yield n
         n -= 1
 
+
 # A list of tasks to run
 from collections import deque
 
-tasks = deque([countdown_task(5),
-               countdown_task(10),
-               countdown_task(15)])
+tasks = deque([countdown_task(5), countdown_task(10), countdown_task(15)])
 
 
 def scheduler(tasks):

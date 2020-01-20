@@ -7,10 +7,17 @@ import time
 
 event = threading.Event()
 
-
 def worker():
     event.wait()  # Wait until initialized
-    print("I'm worker", threading.currentThread().name)
+    print("Start.I'm worker", threading.currentThread().name)
+    event.clear()
+    event.wait()
+    print("End.I'm worker", threading.currentThread().name)
+
+def worker2():
+    print("Start. I'm worker", threading.currentThread().name)
+    event.wait()  # Wait until initialized
+    print("End. I'm worker", threading.currentThread().name)
 
 
 def initialize():
@@ -20,13 +27,14 @@ def initialize():
     event.set()
 
 
+
 # Launch a bunch of worker threads
 threading.Thread(target=worker).start()
 threading.Thread(target=worker, name='HI_TREAD').start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
 threading.Thread(target=worker).start()
-threading.Thread(target=worker).start()
+threading.Thread(target=worker2, name="255").start()
 threading.Thread(target=worker).start()
 
 # Go initialize and eventually unlock the workers

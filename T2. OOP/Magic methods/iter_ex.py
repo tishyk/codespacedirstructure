@@ -8,12 +8,15 @@ class Reverse:
         return self
 
     def __next__(self):
-        if self.index == 0:
-            raise StopIteration
         self.index = self.index - 1
-        return self.data[self.index]
+        try:
+            result = self.data[self.index]
+        except IndexError:
+            raise StopIteration
+        return result
 
 rev = Reverse('spam')
-next(rev)   # note no need to call iter()   #'m'
+for i in rev:
+    print(i)   # note no need to call iter()   #'m'
 nums = Reverse(range(1,10))
-next(nums)
+(next(nums))
